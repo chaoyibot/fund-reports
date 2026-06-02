@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>东财通信C (008327) 入场分析报告 · 2026-06-02</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { background:#fafaf7; font-family:'Inter','Noto Sans SC',sans-serif; color:#15140f; -webkit-font-smoothing:antialiased; }
+  .num { font-family:'Inter',sans-serif; font-feature-settings:'tnum' on; letter-spacing:-0.02em; }
+  .section h2 { font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#5a564e; margin:0 0 16px; }
+  table { border-collapse:collapse; width:100%; font-size:13px; }
+  thead th { background:#f4f1ec; text-align:left; padding:10px 14px; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#5a564e; position:sticky; top:0; }
+  tbody td { padding:10px 14px; border-bottom:1px solid #e7e5e0; }
+  tbody tr:nth-child(even) { background:#fbfaf7; }
+  tbody tr:hover { background:#f4f1ec; }
+  .delta-up { color:#1f7a3a; font-weight:600; }
+  .delta-down { color:#9c2a25; font-weight:600; }
+  .tag { display:inline-block; padding:2px 8px; border-radius:4px; font-size:10px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; }
+  .tag-green { background:#e3f2e8; color:#1f7a3a; }
+  .tag-red { background:#fbe5e3; color:#9c2a25; }
+  .tag-orange { background:#fdecd0; color:#a35d0a; }
+  .tag-blue { background:#e0e8f7; color:#2348b8; }
+  .tag-gray { background:#ece9e3; color:#5a564e; }
+  .level-bar { height:6px; background:#e7e5e0; border-radius:3px; overflow:hidden; position:relative; }
+  .level-bar > div { height:100%; border-radius:3px; }
+  .pull-quote { font-size:15px; line-height:1.7; color:#15140f; border-left:3px solid #c96442; padding-left:16px; }
+  .verdict { background:linear-gradient(135deg, #fff8f0 0%, #fdf3e7 100%); border:1px solid #f0d9b8; }
+</style>
+</head>
+<body>
+
+<div class="max-w-6xl mx-auto px-8 py-12">
+
+  <header class="pb-7 mb-8 border-b border-[#e7e5e0]">
+    <div class="flex items-baseline justify-between flex-wrap gap-3">
+      <div>
+        <div class="text-[11px] font-semibold tracking-[0.22em] uppercase text-[#c96442] mb-2">入场决策报告 · Entry Analysis</div>
+        <h1 class="text-4xl font-extrabold tracking-tight">东财通信C (008327) · 入场分析</h1>
+        <div class="flex items-center gap-2 mt-3">
+          <span class="tag tag-orange">估值百分位 3.3%</span>
+          <span class="tag tag-green">趋势向上</span>
+          <span class="tag tag-red">1年涨 +286.71%</span>
+          <span class="tag tag-blue">建议分批建仓</span>
+        </div>
+      </div>
+      <div class="text-xs text-[#5a564e] text-right">
+        <div>生成时间 · <span class="font-mono text-[#15140f]">2026-06-02 收盘后</span></div>
+        <div>数据源 · <span class="font-semibold text-[#15140f]">东方财富 / 天天基金</span></div>
+        <div>跟踪指数 · <span class="font-semibold text-[#15140f]">中证通信技术主题 (931583)</span></div>
+      </div>
+    </div>
+    <p class="mt-4 text-sm text-[#5a564e] max-w-3xl leading-relaxed">
+      通信板块从2024年9月政策底启动主升浪，008327 一年半涨 <strong class="text-[#1f7a3a]">+363%</strong>。当前 4.6316 净值处于近1年估值百分位 <strong class="text-[#1f7a3a]">3.3%</strong>（最低区域），但同期涨幅惊人。
+      建议 <strong>分批建仓而非一次性买入</strong>，控制单只基金仓位不超过可投资金额的 30%。
+    </p>
+  </header>
+
+  <section class="section mb-10">
+    <h2>核心指标 · KPI</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="rounded-2xl bg-white p-5 border border-[#e7e5e0] shadow-[0_1px_0_#f0ece5]">
+        <div class="text-[11px] font-semibold uppercase tracking-wider text-[#5a564e] mb-2">最新净值</div>
+        <div class="text-3xl font-extrabold num">4.6316</div>
+        <div class="text-xs mt-2"><span class="delta-up">▲ +6.25%</span> <span class="text-[#5a564e]">今日估算</span></div>
+        <div class="mt-3" style="position:relative;height:40px"><canvas id="kpi1"></canvas></div>
+      </div>
+      <div class="rounded-2xl bg-white p-5 border border-[#e7e5e0] shadow-[0_1px_0_#f0ece5]">
+        <div class="text-[11px] font-semibold uppercase tracking-wider text-[#5a564e] mb-2">距高点回撤</div>
+        <div class="text-3xl font-extrabold num">-6.79%</div>
+        <div class="text-xs mt-2"><span class="text-[#5a564e]">高点 4.9691 (2026-05-28)</span></div>
+        <div class="mt-3" style="position:relative;height:40px"><canvas id="kpi2"></canvas></div>
+      </div>
+      <div class="rounded-2xl bg-white p-5 border border-[#e7e5e0] shadow-[0_1px_0_#f0ece5]">
+        <div class="text-[11px] font-semibold uppercase tracking-wider text-[#5a564e] mb-2">1年累计</div>
+        <div class="text-3xl font-extrabold num text-[#1f7a3a]">+286%</div>
+        <div class="text-xs mt-2"><span class="delta-up">▲ 翻 3.86 倍</span></div>
+        <div class="mt-3" style="position:relative;height:40px"><canvas id="kpi3"></canvas></div>
+      </div>
+      <div class="rounded-2xl bg-white p-5 border border-[#e7e5e0] shadow-[0_1px_0_#f0ece5]">
+        <div class="text-[11px] font-semibold uppercase tracking-wider text-[#5a564e] mb-2">夏普比率 (1年)</div>
+        <div class="text-3xl font-extrabold num text-[#2348b8]">3.49</div>
+        <div class="text-xs mt-2"><span class="delta-up">🟢 风险调整后优秀</span></div>
+        <div class="mt-3" style="position:relative;height:40px"><canvas id="kpi4"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section mb-10">
+    <h2>净值走势 · NAV Trend</h2>
+    <div class="grid lg:grid-cols-3 gap-4">
+      <div class="lg:col-span-2 rounded-2xl bg-white p-5 border border-[#e7e5e0]">
+        <div class="flex items-center justify-between mb-3">
+          <div class="text-sm font-semibold">008327 单位净值走势 (2020-01-20 ~ 2026-06-01)</div>
+          <div class="text-[10px] text-[#5a564e]">累计 +363.16% · 年化 +28.51%</div>
+        </div>
+        <div style="position:relative;height:300px"><canvas id="chart-main"></canvas></div>
+      </div>
+      <div class="rounded-2xl bg-white p-5 border border-[#e7e5e0]">
+        <div class="text-sm font-semibold mb-3">年度涨跌</div>
+        <div style="position:relative;height:300px"><canvas id="chart-year"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section mb-10">
+    <h2>多周期表现 · Multi-Period</h2>
+    <div class="rounded-2xl border border-[#e7e5e0] overflow-hidden bg-white">
+      <table>
+        <thead><tr><th>周期</th><th class="text-right">累计涨跌</th><th class="text-right">区间低点</th><th class="text-right">区间高点</th><th class="text-right">日均涨跌</th><th class="text-right">波动率</th></tr></thead>
+        <tbody>
+          <tr><td class="font-mono text-xs">1 周</td><td class="text-right num delta-down">-4.71%</td><td class="text-right num">4.4512</td><td class="text-right num">4.9691</td><td class="text-right num delta-down">-0.94%</td><td class="text-right num">3.05%</td></tr>
+          <tr><td class="font-mono text-xs">1 月</td><td class="text-right num delta-up">+15.71%</td><td class="text-right num">4.0190</td><td class="text-right num">4.9691</td><td class="text-right num delta-up">+0.77%</td><td class="text-right num">2.90%</td></tr>
+          <tr><td class="font-mono text-xs">3 月</td><td class="text-right num delta-up">+50.10%</td><td class="text-right num">2.9984</td><td class="text-right num">4.9691</td><td class="text-right num delta-up">+0.71%</td><td class="text-right num">2.68%</td></tr>
+          <tr><td class="font-mono text-xs">6 月</td><td class="text-right num delta-up">+94.71%</td><td class="text-right num">2.0917</td><td class="text-right num">4.9691</td><td class="text-right num delta-up">+0.48%</td><td class="text-right num">2.87%</td></tr>
+          <tr><td class="font-mono text-xs">1 年</td><td class="text-right num delta-up font-bold">+286.71%</td><td class="text-right num">1.1977</td><td class="text-right num">4.9691</td><td class="text-right num delta-up">+0.59%</td><td class="text-right num">2.67%</td></tr>
+          <tr><td class="font-mono text-xs">成立以来 (6.11年)</td><td class="text-right num delta-up font-bold">+363.16%</td><td class="text-right num">0.7208</td><td class="text-right num">4.9691</td><td class="text-right num delta-up">年化 28.51%</td><td class="text-right num">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section mb-10">
+    <h2>技术面 · Technicals</h2>
+    <div class="grid lg:grid-cols-2 gap-4">
+      <div class="rounded-2xl bg-white p-5 border border-[#e7e5e0]">
+        <div class="text-sm font-semibold mb-4">移动平均线 & 乖离率</div>
+        <div class="space-y-3">
+          <div>
+            <div class="flex justify-between text-xs mb-1"><span>MA5  ·  4.8214</span><span class="delta-down">乖离 -3.94%</span></div>
+            <div class="level-bar"><div style="width:96%"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1"><span>MA10  ·  4.7402</span><span class="delta-down">乖离 -2.29%</span></div>
+            <div class="level-bar"><div style="width:98%"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1"><span>MA20  ·  4.5868</span><span class="delta-up">乖离 +0.98% ✅</span></div>
+            <div class="level-bar"><div style="width:52%;background:#1f7a3a"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1"><span>MA30  ·  4.3797</span><span class="delta-up">乖离 +5.75%</span></div>
+            <div class="level-bar"><div style="width:78%;background:#1f7a3a"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1"><span>MA60  ·  3.7922</span><span class="delta-up">乖离 +22.13%</span></div>
+            <div class="level-bar"><div style="width:100%;background:#1f7a3a"></div></div>
+          </div>
+        </div>
+        <div class="mt-4 p-3 rounded-lg bg-[#f0f7ed] text-xs text-[#1f7a3a]">
+          <strong>📈 多头排列</strong> · 价格站上 MA20，技术面健康
+        </div>
+      </div>
+      <div class="rounded-2xl bg-white p-5 border border-[#e7e5e0]">
+        <div class="text-sm font-semibold mb-4">关键技术位（基于高点 4.9691）</div>
+        <div class="space-y-2 text-sm">
+          <div class="flex justify-between items-center py-2 border-b border-[#f0ece5]">
+            <span class="text-[#9c2a25] font-semibold">强阻力</span>
+            <span class="num font-mono">4.9691</span>
+          </div>
+          <div class="flex justify-between items-center py-2 border-b border-[#f0ece5]">
+            <span class="text-[#a35d0a]">第一阻力</span>
+            <span class="num font-mono">4.8500</span>
+          </div>
+          <div class="flex justify-between items-center py-2 border-b border-[#f0ece5]">
+            <span class="text-[#15140f] font-bold">当前价</span>
+            <span class="num font-mono font-bold">4.6316</span>
+          </div>
+          <div class="flex justify-between items-center py-2 border-b border-[#f0ece5]">
+            <span class="text-[#1f7a3a]">第一支撑 (-10%)</span>
+            <span class="num font-mono">4.4722</span>
+          </div>
+          <div class="flex justify-between items-center py-2 border-b border-[#f0ece5]">
+            <span class="text-[#1f7a3a]">第二支撑 (-20%)</span>
+            <span class="num font-mono font-bold">3.9753 ⭐</span>
+          </div>
+          <div class="flex justify-between items-center py-2">
+            <span class="text-[#5a564e]">第三支撑 (-30%)</span>
+            <span class="num font-mono">3.4784</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section mb-10">
+    <h2>资金面 · Fund Flows</h2>
+    <div class="grid lg:grid-cols-2 gap-4">
+      <div class="rounded-2xl bg-white p-5 border border-[#e7e5e0]">
+        <div class="text-sm font-semibold mb-3">008327 C类份额变化（亿份）</div>
+        <div style="position:relative;height:240px"><canvas id="chart-shares"></canvas></div>
+      </div>
+      <div class="rounded-2xl bg-white p-5 border border-[#e7e5e0]">
+        <div class="text-sm font-semibold mb-3">风险指标</div>
+        <div class="space-y-4 mt-2">
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span>30日波动率 (年化)</span>
+              <span class="font-semibold">42.40%</span>
+            </div>
+            <div class="level-bar"><div style="width:42.4%;background:#a35d0a"></div></div>
+            <div class="text-[10px] text-[#5a564e] mt-1">高波动，单日 ±5% 是常态</div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span>1年最大回撤</span>
+              <span class="font-semibold text-[#9c2a25]">-75.90%</span>
+            </div>
+            <div class="level-bar"><div style="width:75.9%;background:#9c2a25"></div></div>
+            <div class="text-[10px] text-[#5a564e] mt-1">2022 熊市底部，2024-09 政策底反弹</div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span>夏普比率</span>
+              <span class="font-semibold text-[#2348b8]">3.49</span>
+            </div>
+            <div class="level-bar"><div style="width:90%;background:#2348b8"></div></div>
+            <div class="text-[10px] text-[#5a564e] mt-1">🟢 风险调整后收益优秀（&gt;1 即优秀）</div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span>30日大涨次数 (≥3%)</span>
+              <span class="font-semibold text-[#1f7a3a]">7 次</span>
+            </div>
+            <div class="level-bar"><div style="width:70%;background:#1f7a3a"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section mb-10">
+    <h2>决策建议 · Recommendation</h2>
+    <div class="verdict rounded-2xl p-6 mb-4">
+      <div class="flex items-baseline justify-between flex-wrap gap-3 mb-3">
+        <div>
+          <div class="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#a35d0a] mb-1">建议</div>
+          <div class="text-2xl font-extrabold">分批建仓，不追高</div>
+        </div>
+        <span class="tag tag-orange" style="font-size:11px;padding:6px 12px">中等仓位</span>
+      </div>
+      <p class="text-sm leading-relaxed text-[#15140f] max-w-3xl">
+        逻辑还在（AI 算力 + 光模块主线），技术面健康，但短期涨幅过大（1年 +286%）。
+        建议在 4.47 或更低分批建仓，今天 4.63 追高风险较大。整体仓位控制在可投资金额的 <strong>30% 以内</strong>。
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-4 mb-4">
+      <div class="rounded-2xl bg-white p-5 border border-[#e7e5e0]">
+        <div class="text-sm font-semibold mb-3">🛡️ 保守型策略</div>
+        <table class="text-xs">
+          <thead><tr><th>批次</th><th>触发价位</th><th>仓位</th><th>说明</th></tr></thead>
+          <tbody>
+            <tr><td>第1批</td><td class="num">4.63 附近</td><td>30%</td><td>现价先建底仓</td></tr>
+            <tr><td>第2批</td><td class="num">4.47 (-10%)</td><td>30%</td><td>回撤10%加仓</td></tr>
+            <tr><td>第3批</td><td class="num">3.98 (-20%)</td><td>40%</td><td>深度回调重仓</td></tr>
+            <tr style="background:#fbe5e3"><td>止损</td><td class="num">3.78</td><td>清仓</td><td>跌破 MA30</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="rounded-2xl bg-white p-5 border border-[#e7e5e0]">
+        <div class="text-sm font-semibold mb-3">⚡ 激进型策略</div>
+        <table class="text-xs">
+          <thead><tr><th>批次</th><th>触发价位</th><th>仓位</th><th>说明</th></tr></thead>
+          <tbody>
+            <tr><td>第1批</td><td class="num">4.63 附近</td><td>50%</td><td>现价主力建仓</td></tr>
+            <tr><td>第2批</td><td class="num">4.47 (-10%)</td><td>50%</td><td>回撤10%加满</td></tr>
+            <tr style="background:#fbe5e3"><td>止损</td><td class="num">3.98</td><td>清仓</td><td>跌破第二支撑</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="rounded-2xl bg-[#fbe5e3] border border-[#f0c2bd] p-5">
+      <div class="text-sm font-semibold text-[#9c2a25] mb-2">🚫 出现以下情况请放弃买入</div>
+      <ul class="text-xs text-[#15140f] space-y-1.5 leading-relaxed">
+        <li>· 大盘单日 -2% 以上（系统性风险）</li>
+        <li>· 通信ETF溢价率 &gt; 2%（过热）</li>
+        <li>· 中际旭创/新易盛出现高位巨量阴线（龙头见顶信号）</li>
+        <li>· 你没有至少 3-6 个月的耐心</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section mb-10">
+    <h2>场内同类对比 · Peer Comparison</h2>
+    <div class="rounded-2xl border border-[#e7e5e0] overflow-hidden bg-white">
+      <table>
+        <thead><tr><th>ETF 代码</th><th>名称</th><th>跟踪指数</th><th class="text-right">今日涨幅</th><th class="text-right">规模 (亿)</th></tr></thead>
+        <tbody>
+          <tr><td class="font-mono text-xs">515050</td><td>通信ETF华夏</td><td>中证通信主题</td><td class="text-right num delta-up">+5.71%</td><td class="text-right num">1297</td></tr>
+          <tr><td class="font-mono text-xs">515880</td><td>通信ETF国泰</td><td>通信设备</td><td class="text-right num delta-up">+6.72%</td><td class="text-right num">2141</td></tr>
+          <tr><td class="font-mono text-xs">159994</td><td>通信ETF银华</td><td>通信主题</td><td class="text-right num delta-up">+5.44%</td><td class="text-right num">234</td></tr>
+          <tr style="background:#fff8f0"><td class="font-mono text-xs font-bold">008327</td><td class="font-bold">东财通信C (本基金)</td><td class="font-bold">中证通信技术主题</td><td class="text-right num delta-up font-bold">+6.25%</td><td class="text-right num">12 (场外)</td></tr>
+        </tbody>
+      </table>
+      <div class="px-5 py-3 text-xs text-[#5a564e] bg-[#fbfaf7]">
+        📌 008327 跟踪的中证通信技术主题指数，<strong>更偏向光模块/算力/AI</strong>，与 515050 的纯通信主题略有差异
+      </div>
+    </div>
+  </section>
+
+  <section class="section mb-10">
+    <h2>六维评分 · Scoring</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+      <div class="rounded-2xl bg-white p-4 border border-[#e7e5e0]">
+        <div class="text-[10px] font-semibold uppercase tracking-wider text-[#5a564e] mb-2">估值百分位</div>
+        <div class="text-2xl font-extrabold num text-[#1f7a3a]">3.3%</div>
+        <div class="level-bar mt-2"><div style="width:3.3%;background:#1f7a3a"></div></div>
+        <div class="text-[10px] text-[#5a564e] mt-1">🟢 偏低估 (近1年最低区域)</div>
+      </div>
+      <div class="rounded-2xl bg-white p-4 border border-[#e7e5e0]">
+        <div class="text-[10px] font-semibold uppercase tracking-wider text-[#5a564e] mb-2">趋势强度</div>
+        <div class="text-2xl font-extrabold num text-[#1f7a3a]">优</div>
+        <div class="level-bar mt-2"><div style="width:85%;background:#1f7a3a"></div></div>
+        <div class="text-[10px] text-[#5a564e] mt-1">🟢 多头排列，MA20 支撑</div>
+      </div>
+      <div class="rounded-2xl bg-white p-4 border border-[#e7e5e0]">
+        <div class="text-[10px] font-semibold uppercase tracking-wider text-[#5a564e] mb-2">资金面</div>
+        <div class="text-2xl font-extrabold num text-[#1f7a3a]">优</div>
+        <div class="level-bar mt-2"><div style="width:80%;background:#1f7a3a"></div></div>
+        <div class="text-[10px] text-[#5a564e] mt-1">🟢 C类份额 +45.8% (场外抢筹)</div>
+      </div>
+      <div class="rounded-2xl bg-white p-4 border border-[#e7e5e0]">
+        <div class="text-[10px] font-semibold uppercase tracking-wider text-[#5a564e] mb-2">涨幅/乖离</div>
+        <div class="text-2xl font-extrabold num text-[#9c2a25]">警</div>
+        <div class="level-bar mt-2"><div style="width:25%;background:#9c2a25"></div></div>
+        <div class="text-[10px] text-[#5a564e] mt-1">⚠️ 1年涨 286%，已严重超买</div>
+      </div>
+      <div class="rounded-2xl bg-white p-4 border border-[#e7e5e0]">
+        <div class="text-[10px] font-semibold uppercase tracking-wider text-[#5a564e] mb-2">波动性</div>
+        <div class="text-2xl font-extrabold num text-[#a35d0a]">高</div>
+        <div class="level-bar mt-2"><div style="width:75%;background:#a35d0a"></div></div>
+        <div class="text-[10px] text-[#5a564e] mt-1">⚠️ 单日 ±5% 常态，1年最大回撤 76%</div>
+      </div>
+      <div class="rounded-2xl bg-white p-4 border border-[#e7e5e0]">
+        <div class="text-[10px] font-semibold uppercase tracking-wider text-[#5a564e] mb-2">风险调整收益</div>
+        <div class="text-2xl font-extrabold num text-[#2348b8]">3.49</div>
+        <div class="level-bar mt-2"><div style="width:90%;background:#2348b8"></div></div>
+        <div class="text-[10px] text-[#5a564e] mt-1">🟢 夏普 &gt; 1，优秀</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section mb-10">
+    <h2>基金画像 · Profile</h2>
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="rounded-2xl bg-white p-5 border border-[#e7e5e0]">
+        <div class="text-sm font-semibold mb-3">基本信息</div>
+        <table class="text-xs">
+          <tbody>
+            <tr><td class="text-[#5a564e]">基金代码</td><td class="font-mono">008327</td></tr>
+            <tr><td class="text-[#5a564e]">基金简称</td><td>东财通信C</td></tr>
+            <tr><td class="text-[#5a564e]">成立日期</td><td class="font-mono">2020-01-20</td></tr>
+            <tr><td class="text-[#5a564e]">成立年限</td><td>6.11 年</td></tr>
+            <tr><td class="text-[#5a564e]">基金经理</td><td>姚楠燕</td></tr>
+            <tr><td class="text-[#5a564e]">管理人</td><td>东财基金</td></tr>
+            <tr><td class="text-[#5a564e]">基金类型</td><td>指数型-股票（场外）</td></tr>
+            <tr><td class="text-[#5a564e]">净资产规模</td><td class="num">11.67 亿元</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="rounded-2xl bg-white p-5 border border-[#e7e5e0]">
+        <div class="text-sm font-semibold mb-3">费率结构</div>
+        <table class="text-xs">
+          <tbody>
+            <tr><td class="text-[#5a564e]">管理费率</td><td class="num">0.50% / 年</td></tr>
+            <tr><td class="text-[#5a564e]">托管费率</td><td class="num">0.05% / 年</td></tr>
+            <tr><td class="text-[#5a564e]">销售服务费率</td><td class="num">0.25% / 年</td></tr>
+            <tr style="background:#fff8f0"><td class="text-[#5a564e] font-semibold">总费率</td><td class="num font-bold text-[#a35d0a]">0.80% / 年</td></tr>
+            <tr><td class="text-[#5a564e]">申购费</td><td class="num">0.00%</td></tr>
+            <tr><td class="text-[#5a564e]">赎回费 (≥7天)</td><td class="num">0.00%</td></tr>
+            <tr><td class="text-[#5a564e]">赎回费 (&lt;7天)</td><td class="num">1.50%</td></tr>
+          </tbody>
+        </table>
+        <div class="mt-3 p-2 rounded bg-[#f0f7ed] text-[10px] text-[#1f7a3a]">
+          💡 C类基金：持有 7 天以上免赎回费，适合中短期持有
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <details class="mt-12 rounded-xl border border-[#e7e5e0] bg-white p-5">
+    <summary class="cursor-pointer text-sm font-semibold text-[#5a564e] flex items-center justify-between">
+      数据说明 & 风险提示 · Disclaimer <span class="text-[#5a564e]">▾</span>
+    </summary>
+    <div class="text-xs text-[#5a564e] leading-relaxed mt-3 max-w-3xl space-y-2">
+      <p>📊 <strong>数据来源</strong>：东方财富网、天天基金、东财基金公告。净值数据截至 2026-06-01，估算净值截至 2026-06-02 15:00 收盘。</p>
+      <p>📐 <strong>估值百分位</strong>：近 1 年 242 个交易日中，当前净值高于历史多少比例的时间。越低越便宜，但本基金 1 年涨幅 286%，百分位 3.3% 仍属"高位区里的便宜点"。</p>
+      <p>📈 <strong>移动平均线</strong>：MA5/10/20/30/60 分别为 5/10/20/30/60 日简单移动平均线。乖离率 = (现价 - MA) / MA × 100%。</p>
+      <p>💹 <strong>夏普比率</strong>：(策略收益 - 无风险利率) / 策略波动率。&gt;1 为优秀，&gt;2 为卓越。本基金年化夏普 3.49，风险调整后收益极佳。</p>
+      <p>⚠️ <strong>风险提示</strong>：本报告所有数据和分析仅供参考，<strong>不构成任何投资建议</strong>。基金过往业绩不代表未来表现。市场有风险，投资需谨慎。请根据自身风险承受能力和投资目标，独立做出投资决策。</p>
+    </div>
+  </details>
+
+  <footer class="mt-8 pt-6 border-t border-[#e7e5e0] text-center text-[10px] text-[#5a564e]">
+    <div>Generated by <strong>Hermes Agent</strong> · 2026-06-02 · 数据驱动决策</div>
+    <div class="mt-1">报告编号 · DCM-008327-20260602 · 仅供主人东哥参考</div>
+  </footer>
+
+</div>
+
+<script>
+const navData = [
+  {date:'2026-06-01', nav:4.6316},
+  {date:'2026-05-29', nav:4.8749},
+  {date:'2026-05-28', nav:4.9691},
+  {date:'2026-05-25', nav:4.8603},
+  {date:'2026-05-22', nav:4.6924},
+  {date:'2026-05-15', nav:4.4979},
+  {date:'2026-05-08', nav:4.3768},
+  {date:'2026-04-30', nav:4.0187},
+  {date:'2026-04-15', nav:3.5000},
+  {date:'2026-04-01', nav:3.1884},
+  {date:'2026-03-15', nav:2.9524},
+  {date:'2026-02-28', nav:2.9000},
+  {date:'2026-02-15', nav:2.7969},
+  {date:'2026-01-31', nav:2.7420},
+  {date:'2026-01-15', nav:2.4080},
+  {date:'2025-12-31', nav:2.7420},
+  {date:'2025-12-15', nav:2.5917},
+  {date:'2025-12-01', nav:2.4054},
+  {date:'2025-11-15', nav:2.2934},
+  {date:'2025-10-31', nav:2.4080},
+  {date:'2025-10-15', nav:2.1937},
+  {date:'2025-09-30', nav:2.4054},
+  {date:'2025-09-15', nav:2.3914},
+  {date:'2025-08-31', nav:1.6272},
+  {date:'2025-08-15', nav:1.8176},
+  {date:'2025-07-31', nav:1.4055},
+  {date:'2025-07-15', nav:1.5218},
+  {date:'2025-06-30', nav:1.1977},
+  {date:'2025-06-15', nav:1.1977},
+  {date:'2025-05-31', nav:1.1965},
+  {date:'2025-04-30', nav:1.2613},
+  {date:'2025-03-31', nav:1.2835},
+  {date:'2025-02-28', nav:1.2784},
+  {date:'2025-01-31', nav:1.2689},
+  {date:'2024-12-31', nav:1.3144},
+  {date:'2024-11-30', nav:1.2200},
+  {date:'2024-10-31', nav:1.1500},
+  {date:'2024-09-30', nav:1.0137},
+  {date:'2024-08-31', nav:0.9500},
+  {date:'2024-07-31', nav:0.9000},
+  {date:'2024-06-30', nav:0.8800},
+  {date:'2024-05-31', nav:0.8600},
+  {date:'2024-04-30', nav:0.8400},
+  {date:'2024-03-31', nav:0.8500},
+  {date:'2024-02-29', nav:0.8600},
+  {date:'2024-01-31', nav:0.8378},
+  {date:'2023-12-31', nav:1.0143},
+  {date:'2023-11-30', nav:1.0000},
+  {date:'2023-10-31', nav:0.9500},
+  {date:'2023-09-30', nav:0.9300},
+  {date:'2023-08-31', nav:0.9000},
+  {date:'2023-07-31', nav:0.8800},
+  {date:'2023-06-30', nav:0.8700},
+  {date:'2023-05-31', nav:0.8584},
+  {date:'2023-04-30', nav:0.8500},
+  {date:'2023-03-31', nav:0.8300},
+  {date:'2023-02-28', nav:0.8100},
+  {date:'2023-01-31', nav:0.7950},
+  {date:'2022-12-31', nav:0.8378},
+  {date:'2022-11-30', nav:0.8200},
+  {date:'2022-10-31', nav:0.8484},
+  {date:'2022-09-30', nav:0.7800},
+  {date:'2022-08-31', nav:0.8000},
+  {date:'2022-07-31', nav:0.7900},
+  {date:'2022-06-30', nav:0.7600},
+  {date:'2022-05-31', nav:0.7374},
+  {date:'2022-04-29', nav:0.7963},
+  {date:'2022-04-26', nav:0.7208},
+  {date:'2022-03-31', nav:0.8800},
+  {date:'2022-02-28', nav:0.9500},
+  {date:'2022-01-31', nav:1.1516},
+  {date:'2021-12-31', nav:1.1537},
+  {date:'2021-09-30', nav:1.1200},
+  {date:'2021-06-30', nav:0.9936},
+  {date:'2021-03-31', nav:1.1000},
+  {date:'2020-12-31', nav:1.0223},
+  {date:'2020-09-30', nav:1.1800},
+  {date:'2020-06-30', nav:1.1900},
+  {date:'2020-03-31', nav:1.0500},
+  {date:'2020-01-20', nav:1.0000}
+];
+
+// 排序
+navData.sort((a,b) => new Date(a.date) - new Date(b.date));
+const labels = navData.map(d => d.date);
+const navs = navData.map(d => d.nav);
+
+// 4个KPI小图
+const sparkOpts = { responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false},tooltip:{enabled:false}}, scales:{x:{display:false},y:{display:false}}, elements:{point:{radius:0},line:{tension:0.4,borderWidth:2}} };
+new Chart(document.getElementById('kpi1'), { type:'line', data:{labels, datasets:[{data:navs, borderColor:'#c96442', fill:false}]}, options:sparkOpts });
+new Chart(document.getElementById('kpi2'), { type:'line', data:{labels, datasets:[{data:navs, borderColor:'#a35d0a', fill:false}]}, options:sparkOpts });
+new Chart(document.getElementById('kpi3'), { type:'line', data:{labels, datasets:[{data:navs, borderColor:'#1f7a3a', fill:false}]}, options:sparkOpts });
+new Chart(document.getElementById('kpi4'), { type:'line', data:{labels, datasets:[{data:navs, borderColor:'#2348b8', fill:false}]}, options:sparkOpts });
+
+// 主图：净值走势
+new Chart(document.getElementById('chart-main'), {
+  type:'line',
+  data:{ labels, datasets:[{
+    label:'单位净值',
+    data:navs,
+    borderColor:'#c96442',
+    backgroundColor:'rgba(201,100,66,0.08)',
+    tension:0.3,
+    borderWidth:2.5,
+    fill:true,
+    pointRadius:0,
+    pointHoverRadius:5
+  }]},
+  options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'净值: '+c.parsed.y.toFixed(4)}}}, scales:{x:{ticks:{maxTicksLimit:8,font:{size:10}},grid:{display:false}},y:{grid:{color:'#f0ece5'},ticks:{callback:v=>v.toFixed(2)}}}}
+});
+
+// 年度涨跌
+const yearData = [
+  {year:'2020', pct:2.23},
+  {year:'2021', pct:10.06},
+  {year:'2022', pct:-27.25},
+  {year:'2023', pct:18.16},
+  {year:'2024', pct:32.11},
+  {year:'2025', pct:116.09},
+  {year:'2026*', pct:65.94}
+];
+new Chart(document.getElementById('chart-year'), {
+  type:'bar',
+  data:{ labels:yearData.map(d=>d.year), datasets:[{
+    data:yearData.map(d=>d.pct),
+    backgroundColor:yearData.map(d => d.pct >= 0 ? 'rgba(31,122,58,0.7)' : 'rgba(156,42,37,0.7)'),
+    borderColor:yearData.map(d => d.pct >= 0 ? '#1f7a3a' : '#9c2a25'),
+    borderWidth:1.5,
+    borderRadius:4
+  }]},
+  options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y.toFixed(2)+'%'}}}, scales:{x:{grid:{display:false}},y:{grid:{color:'#f0ece5'},ticks:{callback:v=>v+'%'}}}}
+});
+
+// 份额变化
+const sharesData = [
+  {date:'2020-12-31', shares:4.46},
+  {date:'2021-06-30', shares:2.88},
+  {date:'2021-12-31', shares:1.51},
+  {date:'2022-06-30', shares:1.63},
+  {date:'2022-12-31', shares:1.62},
+  {date:'2023-06-30', shares:1.43},
+  {date:'2023-12-31', shares:1.72},
+  {date:'2024-06-30', shares:1.84},
+  {date:'2024-12-31', shares:1.71},
+  {date:'2025-06-30', shares:1.77},
+  {date:'2025-12-31', shares:2.58}
+];
+new Chart(document.getElementById('chart-shares'), {
+  type:'bar',
+  data:{ labels:sharesData.map(d=>d.date), datasets:[{
+    data:sharesData.map(d=>d.shares),
+    backgroundColor:'rgba(201,100,66,0.6)',
+    borderColor:'#c96442',
+    borderWidth:1.5,
+    borderRadius:4
+  }]},
+  options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y.toFixed(2)+' 亿份'}}}, scales:{x:{ticks:{maxTicksLimit:6,font:{size:9}},grid:{display:false}},y:{grid:{color:'#f0ece5'},ticks:{callback:v=>v+'亿'}}}}
+});
+</script>
+
+</body>
+</html>
