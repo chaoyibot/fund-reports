@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>三只基金 41 天走势分析报告 | 2026-04-22 ~ 2026-06-02</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #e2e8f0;
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.7;
+}
+.container { max-width: 1200px; margin: 0 auto; }
+header {
+    background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+    border-radius: 16px;
+    padding: 40px 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+header h1 { font-size: 32px; margin-bottom: 8px; }
+header .sub { opacity: 0.9; font-size: 16px; }
+header .meta { 
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+}
+header .meta-item {
+    background: rgba(255,255,255,0.1);
+    padding: 12px 16px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+header .meta-num { font-size: 24px; font-weight: bold; }
+header .meta-label { font-size: 12px; opacity: 0.8; margin-top: 4px; }
+section {
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+    border: 1px solid #334155;
+}
+h2 {
+    font-size: 22px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #475569;
+    display: flex; align-items: center; gap: 8px;
+}
+h3 { font-size: 17px; margin: 16px 0 10px; color: #cbd5e1; }
+.fund-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+.fund-card {
+    background: linear-gradient(135deg, #334155 0%, #475569 100%);
+    border-radius: 12px;
+    padding: 20px;
+    border-left: 4px solid;
+}
+.fund-card.f008327 { border-color: #ef4444; }
+.fund-card.f018956 { border-color: #3b82f6; }
+.fund-card.f022502 { border-color: #f59e0b; }
+.fund-card .name { font-size: 16px; font-weight: bold; }
+.fund-card .code { font-size: 12px; opacity: 0.7; }
+.fund-card .cat {
+    display: inline-block; padding: 2px 8px;
+    background: rgba(255,255,255,0.15); border-radius: 12px;
+    font-size: 11px; margin-top: 4px;
+}
+.fund-card .return { font-size: 32px; font-weight: bold; margin: 12px 0 8px; }
+.fund-card .return.pos { color: #34d399; }
+.fund-card .return.neg { color: #f87171; }
+.fund-card .stats { font-size: 12px; opacity: 0.85; line-height: 1.6; }
+.chart-wrap {
+    background: #0f172a;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 16px 0;
+    overflow-x: auto;
+}
+.chart-wrap svg { max-width: 100%; height: auto; display: block; }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    background: #0f172a;
+    border-radius: 8px;
+    overflow: hidden;
+}
+th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid #334155; }
+th { background: #334155; color: #cbd5e1; font-weight: 600; font-size: 13px; }
+tr:hover { background: #334155; }
+.heat-grid {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    gap: 4px;
+    margin: 12px 0;
+}
+.heat {
+    aspect-ratio: 1;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.heat:hover { transform: scale(1.15); z-index: 10; }
+.news-item {
+    background: #0f172a;
+    border-left: 3px solid #6366f1;
+    padding: 10px 14px;
+    margin: 8px 0;
+    border-radius: 6px;
+    font-size: 14px;
+}
+.news-date { 
+    display: inline-block;
+    background: #6366f1;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    margin-right: 8px;
+    font-weight: 600;
+}
+.week-group {
+    background: #0f172a;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    border: 1px solid #334155;
+}
+.week-title {
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #334155;
+}
+.alert {
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid #f59e0b;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-size: 14px;
+    color: #fbbf24;
+}
+.alert-title { font-weight: bold; margin-bottom: 4px; }
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #64748b;
+    font-size: 12px;
+}
+@media (max-width: 768px) {
+    .fund-cards { grid-template-columns: 1fr; }
+    header .meta { grid-template-columns: repeat(2, 1fr); }
+    .heat-grid { grid-template-columns: repeat(10, 1fr); }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+    <h1>📈 三只基金 41 天走势分析报告</h1>
+    <div class="sub">2026-04-22 ~ 2026-06-02 · 数据源：Hermes 定时任务 2c142e580b82 (盘中行情推送)</div>
+    <div class="meta">
+        <div class="meta-item">
+            <div class="meta-num">30</div>
+            <div class="meta-label">有效交易日</div>
+        </div>
+        <div class="meta-item">
+            <div class="meta-num">568</div>
+            <div class="meta-label">有效推送数</div>
+        </div>
+        <div class="meta-item">
+            <div class="meta-num" style="color:#fbbf24">130</div>
+            <div class="meta-label">[SILENT] 空跑</div>
+        </div>
+        <div class="meta-item">
+            <div class="meta-num">+18.7%</div>
+            <div class="meta-label">通信C 累计</div>
+        </div>
+    </div>
+</header>
+
+<section>
+    <h2>🎯 三只基金 累计表现</h2>
+    <div class="fund-cards">
+        <div class="fund-card f008327">
+            <div class="name">🔴 东财通信C</div>
+            <div class="code">008327 · 通信科技</div>
+            <div class="cat">场外基金 · 中证通信主题</div>
+            <div class="return pos">+18.71%</div>
+            <div class="stats">
+                净值：4.1449 → 4.9204<br>
+                平均涨跌：+0.51%<br>
+                最大单日：+6.65%<br>
+                最小单日：-5.33%<br>
+                涨/跌天：229/139
+            </div>
+        </div>
+        <div class="fund-card f018956">
+            <div class="name">🔵 中航机遇领航</div>
+            <div class="code">018956 · 混合基金</div>
+            <div class="cat">主动管理 · 军工主题</div>
+            <div class="return pos">+11.91%</div>
+            <div class="stats">
+                净值：4.9916 → 5.5859<br>
+                平均涨跌：+0.11%<br>
+                最大单日：+5.09%<br>
+                最小单日：-4.91%<br>
+                涨/跌天：175/193
+            </div>
+        </div>
+        <div class="fund-card f022502">
+            <div class="name">🟡 国泰黄金ETF</div>
+            <div class="code">022502 · 黄金</div>
+            <div class="cat">商品 ETF · 避险资产</div>
+            <div class="return neg">-5.96%</div>
+            <div class="stats">
+                净值：3.7809 → 3.5556<br>
+                平均涨跌：-0.12%<br>
+                最大单日：+2.42%<br>
+                最小单日：-2.63%<br>
+                涨/跌天：171/195
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>📈 走势图</h2>
+    <h3>三只基金 41 天累计收益率</h3>
+    <div class="chart-wrap"><svg viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a;border-radius:8px"><text x="450.0" y="20" text-anchor="middle" fill="#e2e8f0" font-size="14" font-weight="bold">📈 三只基金 41 天累计收益率走势</text><line x1="60" y1="190.0" x2="870" y2="190.0" stroke="#475569" stroke-dasharray="3,3"/><text x="870" y="186.0" text-anchor="end" fill="#94a3b8" font-size="10">0%</text><text x="55" y="274.0" text-anchor="end" fill="#94a3b8" font-size="10">-45.4%</text><text x="55" y="194.0" text-anchor="end" fill="#94a3b8" font-size="10">+0.0%</text><text x="55" y="114.0" text-anchor="end" fill="#94a3b8" font-size="10">+45.4%</text><text x="60.0" y="385" text-anchor="middle" fill="#94a3b8" font-size="10">04-22</text><text x="197.93103448275863" y="385" text-anchor="middle" fill="#94a3b8" font-size="10">04-29</text><text x="335.86206896551727" y="385" text-anchor="middle" fill="#94a3b8" font-size="10">05-06</text><text x="473.7931034482759" y="385" text-anchor="middle" fill="#94a3b8" font-size="10">05-13</text><text x="611.7241379310345" y="385" text-anchor="middle" fill="#94a3b8" font-size="10">05-20</text><text x="749.6551724137931" y="385" text-anchor="middle" fill="#94a3b8" font-size="10">05-27</text><path d="M 60.0 190.0 L 87.58620689655172 192.36620540370268 L 115.17241379310344 196.44748414857833 L 142.75862068965517 193.5237735148666 L 170.3448275862069 196.9113625460668 L 197.93103448275863 312.4426181113844 L 225.51724137931035 195.3409852187893 L 253.10344827586206 195.3409852187893 L 280.6896551724138 195.3409852187893 L 308.2758620689655 195.3409852187893 L 335.86206896551727 190.54899369977994 L 363.44827586206895 181.83744251024865 L 391.0344827586207 180.0244865714405 L 418.62068965517244 312.8213812065814 L 446.2068965517241 171.8406502561163 L 473.7931034482759 166.57201304427474 L 501.37931034482756 167.09547215336727 L 528.9655172413793 175.3857025965558 L 556.551724137931 171.26186620053434 L 584.1379310344828 170.10429808937045 L 611.7241379310345 167.5295601950537 L 639.3103448275862 176.2198325590121 L 666.8965517241379 166.1677153583903 L 694.4827586206897 159.1882605704903 L 722.0689655172414 161.00121650929847 L 749.6551724137931 162.13750579488953 L 777.2413793103449 157.4944660548902 L 804.8275862068965 160.02239053294664 L 832.4137931034483 169.83618488715237 L 860.0 156.99654153648513" stroke="#ef4444" stroke-width="2" fill="none" opacity="0.9"/><circle cx="860.0" cy="156.99654153648513" r="4" fill="#ef4444"/><text x="854.0" y="148.99654153648513" text-anchor="end" fill="#ef4444" font-size="11" font-weight="bold">+18.71%</text><path d="M 60.0 190.0 L 87.58620689655172 196.1242159201343 L 115.17241379310344 201.5946638395618 L 142.75862068965517 201.58052831522218 L 170.3448275862069 206.3123950879053 L 197.93103448275863 334.04099302058484 L 225.51724137931035 205.85299054686806 L 253.10344827586206 205.85299054686806 L 280.6896551724138 205.85299054686806 L 308.2758620689655 205.85299054686806 L 335.86206896551727 202.31204169979677 L 363.44827586206895 195.8945136496157 L 391.0344827586207 191.78107606679035 L 418.62068965517244 335.45454545454544 L 446.2068965517241 184.32105309656328 L 473.7931034482759 177.8893895220426 L 501.37931034482756 174.96333598374417 L 528.9655172413793 180.85078187119007 L 556.551724137931 181.50101599081194 L 584.1379310344828 183.56480254439435 L 611.7241379310345 183.04178814382894 L 639.3103448275862 190.7350472656595 L 666.8965517241379 184.17616397208235 L 694.4827586206897 174.81491297817828 L 722.0689655172414 175.2425125894514 L 749.6551724137931 174.0763318314339 L 777.2413793103449 168.89212827988342 L 804.8275862068965 169.64131106988248 L 832.4137931034483 177.32750242954324 L 860.0 168.99814471243045" stroke="#3b82f6" stroke-width="2" fill="none" opacity="0.9"/><circle cx="860.0" cy="168.99814471243045" r="4" fill="#3b82f6"/><text x="854.0" y="160.99814471243045" text-anchor="end" fill="#3b82f6" font-size="11" font-weight="bold">+11.91%</text><path d="M 60.0 190.0 L 87.58620689655172 192.01082273397418 L 115.17241379310344 192.88326786449198 L 142.75862068965517 192.02948466189966 L 170.3448275862069 194.67014746335994 L 197.93103448275863 206.79106965098154 L 225.51724137931035 196.0184717559784 L 253.10344827586206 196.0184717559784 L 280.6896551724138 196.0184717559784 L 308.2758620689655 196.0184717559784 L 335.86206896551727 193.97965613011593 L 363.44827586206895 191.85686182858865 L 391.0344827586207 192.18811104926655 L 418.62068965517244 206.89837573655325 L 446.2068965517241 193.51310793197808 L 473.7931034482759 193.64840690943805 L 501.37931034482756 193.97032516615315 L 528.9655172413793 197.8426752106974 L 556.551724137931 198.4958426880904 L 584.1379310344828 198.75710967904757 L 611.7241379310345 201.44442730032168 L 639.3103448275862 199.53624516993784 L 666.8965517241379 199.8441669807088 L 694.4827586206897 198.79443353489862 L 722.0689655172414 199.77418475098816 L 749.6551724137931 201.5703953138189 L 777.2413793103449 205.4754037322328 L 804.8275862068965 201.12717452558792 L 832.4137931034483 201.75234911109266 L 860.0 200.51133090404596" stroke="#f59e0b" stroke-width="2" fill="none" opacity="0.9"/><circle cx="860.0" cy="200.51133090404596" r="4" fill="#f59e0b"/><text x="854.0" y="192.51133090404596" text-anchor="end" fill="#f59e0b" font-size="11" font-weight="bold">-5.96%</text><line x1="70" y1="370" x2="90" y2="370" stroke="#ef4444" stroke-width="2"/><text x="95" y="374" fill="#cbd5e1" font-size="11">东财通信C</text><line x1="180" y1="370" x2="200" y2="370" stroke="#3b82f6" stroke-width="2"/><text x="205" y="374" fill="#cbd5e1" font-size="11">中航机遇领航</text><line x1="290" y1="370" x2="310" y2="370" stroke="#f59e0b" stroke-width="2"/><text x="315" y="374" fill="#cbd5e1" font-size="11">国泰黄金ETF</text></svg></div>
+    
+    <h3>通信C vs 大盘指数</h3>
+    <div class="chart-wrap"><svg viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a;border-radius:8px"><text x="450.0" y="20" text-anchor="middle" fill="#e2e8f0" font-size="14" font-weight="bold">📊 通信C vs 大盘（41天对比）</text><line x1="60" y1="190.0" x2="870" y2="190.0" stroke="#475569" stroke-dasharray="3,3"/><text x="870" y="186.0" text-anchor="end" fill="#94a3b8" font-size="10">0%</text><text x="55" y="274.0" text-anchor="end" fill="#94a3b8" font-size="10">-55.0%</text><text x="55" y="194.0" text-anchor="end" fill="#94a3b8" font-size="10">+0.0%</text><text x="55" y="114.0" text-anchor="end" fill="#94a3b8" font-size="10">+55.0%</text><text x="60.0" y="385" text-anchor="middle" fill="#94a3b8" font-size="10">04-22</text><text x="197.93103448275863" y="385" text-anchor="middle" fill="#94a3b8" font-size="10">04-29</text><text x="335.86206896551727" y="385" text-anchor="middle" fill="#94a3b8" font-size="10">05-06</text><text x="473.7931034482759" y="385" text-anchor="middle" fill="#94a3b8" font-size="10">05-13</text><text x="611.7241379310345" y="385" text-anchor="middle" fill="#94a3b8" font-size="10">05-20</text><text x="749.6551724137931" y="385" text-anchor="middle" fill="#94a3b8" font-size="10">05-27</text><path d="M 60.0 190.0 L 87.58620689655172 191.9525533468726 L 115.17241379310344 195.3203566915684 L 142.75862068965517 192.90775930073835 L 170.3448275862069 195.70314143043373 L 197.93103448275863 291.0376121274684 L 225.51724137931035 194.40729217684378 L 253.10344827586206 194.40729217684378 L 280.6896551724138 194.40729217684378 L 308.2758620689655 194.40729217684378 L 335.86206896551727 190.45302047076723 L 363.44827586206895 183.2643933106084 L 391.0344827586207 181.76837222109813 L 418.62068965517244 291.3501611344318 L 446.2068965517241 175.01520659873108 L 473.7931034482759 170.6676147940039 L 501.37931034482756 171.09956454520056 L 528.9655172413793 177.94052483244496 L 556.551724137931 174.5376036217982 L 584.1379310344828 173.58239766793247 L 611.7241379310345 171.45776677790022 L 639.3103448275862 178.6288350050835 L 666.8965517241379 170.3339950674699 L 694.4827586206897 164.57466505151467 L 722.0689655172414 166.070686141025 L 749.6551724137931 167.0083331619153 L 777.2413793103449 163.176973986667 L 804.8275862068965 165.2629752241532 L 832.4137931034483 173.3611551124415 L 860.0 162.76609495504093" stroke="#ef4444" stroke-width="2" fill="none" opacity="0.9"/><circle cx="860.0" cy="162.76609495504093" r="4" fill="#ef4444"/><text x="854.0" y="154.76609495504093" text-anchor="end" fill="#ef4444" font-size="11" font-weight="bold">+18.71%</text><path d="M 60.0 190.0 L 87.58620689655172 190.3466846269923 L 115.17241379310344 190.9344178698891 L 142.75862068965517 190.70896651736655 L 170.3448275862069 190.9790827604832 L 197.93103448275863 217.07188646564168 L 225.51724137931035 189.7908548773769 L 253.10344827586206 189.95568959266456 L 280.6896551724138 218.18283699835513 L 308.2758620689655 189.7908548773769 L 335.86206896551727 188.23715475456808 L 363.44827586206895 187.38285010114137 L 391.0344827586207 187.52499788787335 L 418.62068965517244 186.06594479513302 L 446.2068965517241 335.4536976024735 L 473.7931034482759 185.1680387008883 L 501.37931034482756 186.7908630591403 L 528.9655172413793 188.9673902674556 L 556.551724137931 189.10422080530736 L 584.1379310344828 189.40801295799895 L 611.7241379310345 188.08898075243846 L 639.3103448275862 191.02729248366413 L 666.8965517241379 189.76462311623433 L 694.4827586206897 188.35838802903777 L 722.0689655172414 188.61361597528972 L 749.6551724137931 190.49485862912184 L 777.2413793103449 190.37858812027372 L 804.8275862068965 191.46543379139666 L 832.4137931034483 191.38602954145165 L 860.0 191.1045698340571" stroke="#8b5cf6" stroke-width="2" fill="none" opacity="0.9"/><circle cx="860.0" cy="191.1045698340571" r="4" fill="#8b5cf6"/><text x="854.0" y="183.1045698340571" text-anchor="end" fill="#8b5cf6" font-size="11" font-weight="bold">-0.76%</text><path d="M 60.0 190.0 L 87.58620689655172 191.01843088730453 L 115.17241379310344 192.27288761636976 L 142.75862068965517 191.7109715631899 L 170.3448275862069 193.32632436805574 L 197.93103448275863 232.0843378787609 L 225.51724137931035 190.66885177587926 L 253.10344827586206 190.54062481511778 L 280.6896551724138 238.6776205051406 L 308.2758620689655 190.66885177587926 L 335.86206896551727 187.44917541108964 L 363.44827586206895 185.5441850433968 L 391.0344827586207 186.44752815739258 L 418.62068965517244 183.0443827006533 L 446.2068965517241 335.4545454545455 L 473.7931034482759 181.24891753055925 L 501.37931034482756 183.56688119147495 L 528.9655172413793 186.3164240022984 L 556.551724137931 186.6150767740346 L 584.1379310344828 187.19885950414312 L 611.7241379310345 186.304723412012 L 639.3103448275862 189.32884646865458 L 666.8965517241379 185.9718320277165 L 694.4827586206897 183.48488115299247 L 722.0689655172414 183.297383988977 L 749.6551724137931 184.7160326079627 L 777.2413793103449 183.52918994571635 L 804.8275862068965 186.14887538565642 L 832.4137931034483 185.93605891151302 L 860.0 186.03100632449275" stroke="#10b981" stroke-width="2" fill="none" opacity="0.9"/><circle cx="860.0" cy="186.03100632449275" r="4" fill="#10b981"/><text x="854.0" y="178.03100632449275" text-anchor="end" fill="#10b981" font-size="11" font-weight="bold">+2.73%</text><line x1="70" y1="370" x2="90" y2="370" stroke="#ef4444" stroke-width="2"/><text x="95" y="374" fill="#cbd5e1" font-size="11">东财通信C</text><line x1="180" y1="370" x2="200" y2="370" stroke="#8b5cf6" stroke-width="2"/><text x="205" y="374" fill="#cbd5e1" font-size="11">上证指数</text><line x1="290" y1="370" x2="310" y2="370" stroke="#10b981" stroke-width="2"/><text x="315" y="374" fill="#cbd5e1" font-size="11">深证成指</text></svg></div>
+    
+    <h3>三只基金 净值绝对走势</h3>
+    <div class="chart-wrap"><svg viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg" style="background:#0f172a;border-radius:8px"><text x="450.0" y="20" text-anchor="middle" fill="#e2e8f0" font-size="14" font-weight="bold">💎 三只基金 净值绝对值走势</text><line x1="60" y1="190.0" x2="870" y2="190.0" stroke="#475569" stroke-dasharray="3,3"/><text x="870" y="186.0" text-anchor="end" fill="#94a3b8" font-size="10">0%</text><text x="55" y="274.0" text-anchor="end" fill="#94a3b8" font-size="10">-45.4%</text><text x="55" y="194.0" text-anchor="end" fill="#94a3b8" font-size="10">+0.0%</text><text x="55" y="114.0" text-anchor="end" fill="#94a3b8" font-size="10">+45.4%</text><text x="60.0" y="385" text-anchor="middle" fill="#94a3b8" font-size="10">04-22</text><text x="197.93103448275863" y="385" text-anchor="middle" fill="#94a3b8" font-size="10">04-29</text><text x="335.86206896551727" y="385" text-anchor="middle" fill="#94a3b8" font-size="10">05-06</text><text x="473.7931034482759" y="385" text-anchor="middle" fill="#94a3b8" font-size="10">05-13</text><text x="611.7241379310345" y="385" text-anchor="middle" fill="#94a3b8" font-size="10">05-20</text><text x="749.6551724137931" y="385" text-anchor="middle" fill="#94a3b8" font-size="10">05-27</text><path d="M 60.0 190.0 L 87.58620689655172 192.36620540370268 L 115.17241379310344 196.44748414857833 L 142.75862068965517 193.5237735148666 L 170.3448275862069 196.9113625460668 L 197.93103448275863 312.4426181113844 L 225.51724137931035 195.3409852187893 L 253.10344827586206 195.3409852187893 L 280.6896551724138 195.3409852187893 L 308.2758620689655 195.3409852187893 L 335.86206896551727 190.54899369977994 L 363.44827586206895 181.83744251024865 L 391.0344827586207 180.0244865714405 L 418.62068965517244 312.8213812065814 L 446.2068965517241 171.8406502561163 L 473.7931034482759 166.57201304427474 L 501.37931034482756 167.09547215336727 L 528.9655172413793 175.3857025965558 L 556.551724137931 171.26186620053434 L 584.1379310344828 170.10429808937045 L 611.7241379310345 167.5295601950537 L 639.3103448275862 176.2198325590121 L 666.8965517241379 166.1677153583903 L 694.4827586206897 159.1882605704903 L 722.0689655172414 161.00121650929847 L 749.6551724137931 162.13750579488953 L 777.2413793103449 157.4944660548902 L 804.8275862068965 160.02239053294664 L 832.4137931034483 169.83618488715237 L 860.0 156.99654153648513" stroke="#ef4444" stroke-width="2" fill="none" opacity="0.9"/><circle cx="860.0" cy="156.99654153648513" r="4" fill="#ef4444"/><text x="854.0" y="148.99654153648513" text-anchor="end" fill="#ef4444" font-size="11" font-weight="bold">+18.71%</text><path d="M 60.0 190.0 L 87.58620689655172 196.1242159201343 L 115.17241379310344 201.5946638395618 L 142.75862068965517 201.58052831522218 L 170.3448275862069 206.3123950879053 L 197.93103448275863 334.04099302058484 L 225.51724137931035 205.85299054686806 L 253.10344827586206 205.85299054686806 L 280.6896551724138 205.85299054686806 L 308.2758620689655 205.85299054686806 L 335.86206896551727 202.31204169979677 L 363.44827586206895 195.8945136496157 L 391.0344827586207 191.78107606679035 L 418.62068965517244 335.45454545454544 L 446.2068965517241 184.32105309656328 L 473.7931034482759 177.8893895220426 L 501.37931034482756 174.96333598374417 L 528.9655172413793 180.85078187119007 L 556.551724137931 181.50101599081194 L 584.1379310344828 183.56480254439435 L 611.7241379310345 183.04178814382894 L 639.3103448275862 190.7350472656595 L 666.8965517241379 184.17616397208235 L 694.4827586206897 174.81491297817828 L 722.0689655172414 175.2425125894514 L 749.6551724137931 174.0763318314339 L 777.2413793103449 168.89212827988342 L 804.8275862068965 169.64131106988248 L 832.4137931034483 177.32750242954324 L 860.0 168.99814471243045" stroke="#3b82f6" stroke-width="2" fill="none" opacity="0.9"/><circle cx="860.0" cy="168.99814471243045" r="4" fill="#3b82f6"/><text x="854.0" y="160.99814471243045" text-anchor="end" fill="#3b82f6" font-size="11" font-weight="bold">+11.91%</text><path d="M 60.0 190.0 L 87.58620689655172 192.01082273397418 L 115.17241379310344 192.88326786449198 L 142.75862068965517 192.02948466189966 L 170.3448275862069 194.67014746335994 L 197.93103448275863 206.79106965098154 L 225.51724137931035 196.0184717559784 L 253.10344827586206 196.0184717559784 L 280.6896551724138 196.0184717559784 L 308.2758620689655 196.0184717559784 L 335.86206896551727 193.97965613011593 L 363.44827586206895 191.85686182858865 L 391.0344827586207 192.18811104926655 L 418.62068965517244 206.89837573655325 L 446.2068965517241 193.51310793197808 L 473.7931034482759 193.64840690943805 L 501.37931034482756 193.97032516615315 L 528.9655172413793 197.8426752106974 L 556.551724137931 198.4958426880904 L 584.1379310344828 198.75710967904757 L 611.7241379310345 201.44442730032168 L 639.3103448275862 199.53624516993784 L 666.8965517241379 199.8441669807088 L 694.4827586206897 198.79443353489862 L 722.0689655172414 199.77418475098816 L 749.6551724137931 201.5703953138189 L 777.2413793103449 205.4754037322328 L 804.8275862068965 201.12717452558792 L 832.4137931034483 201.75234911109266 L 860.0 200.51133090404596" stroke="#f59e0b" stroke-width="2" fill="none" opacity="0.9"/><circle cx="860.0" cy="200.51133090404596" r="4" fill="#f59e0b"/><text x="854.0" y="192.51133090404596" text-anchor="end" fill="#f59e0b" font-size="11" font-weight="bold">-5.96%</text><line x1="70" y1="370" x2="90" y2="370" stroke="#ef4444" stroke-width="2"/><text x="95" y="374" fill="#cbd5e1" font-size="11">东财通信C</text><line x1="180" y1="370" x2="200" y2="370" stroke="#3b82f6" stroke-width="2"/><text x="205" y="374" fill="#cbd5e1" font-size="11">中航机遇领航</text><line x1="290" y1="370" x2="310" y2="370" stroke="#f59e0b" stroke-width="2"/><text x="315" y="374" fill="#cbd5e1" font-size="11">国泰黄金ETF</text></svg></div>
+</section>
+
+<section>
+    <h2>📅 每日涨跌热力图</h2>
+    <p style="color:#94a3b8;font-size:13px;margin-bottom:8px">🟥 红=涨 &nbsp; 🟩 绿=跌 &nbsp; 颜色越深=幅度越大 &nbsp; 悬停查看具体数值</p>
+    <h3>🔴 东财通信C (008327)</h3>
+    <div class="heat-grid"><div class="heat" style="background:#dc2626;color:#fff" title="2026-04-22: +5.68%">22</div><div class="heat" style="background:#4ade80;color:#fff" title="2026-04-23: -1.02%">23</div><div class="heat" style="background:#16a34a;color:#fff" title="2026-04-24: -2.41%">24</div><div class="heat" style="background:#f87171;color:#fff" title="2026-04-27: +1.21%">27</div><div class="heat" style="background:#4ade80;color:#fff" title="2026-04-28: -1.88%">28</div><div class="heat" style="background:#f87171;color:#fff" title="2026-04-29: +1.78%">29</div><div class="heat" style="background:#fecaca;color:#7f1d1d" title="2026-04-30: +0.42%">30</div><div class="heat" style="background:#fecaca;color:#7f1d1d" title="2026-05-01: +0.42%">01</div><div class="heat" style="background:#fecaca;color:#7f1d1d" title="2026-05-04: +0.42%">04</div><div class="heat" style="background:#fecaca;color:#7f1d1d" title="2026-05-05: +0.42%">05</div><div class="heat" style="background:#dc2626;color:#fff" title="2026-05-06: +2.82%">06</div><div class="heat" style="background:#dc2626;color:#fff" title="2026-05-07: +5.11%">07</div><div class="heat" style="background:#f87171;color:#fff" title="2026-05-08: +1.23%">08</div><div class="heat" style="background:#f87171;color:#fff" title="2026-05-11: +1.07%">11</div><div class="heat" style="background:#f87171;color:#fff" title="2026-05-12: +1.08%">12</div><div class="heat" style="background:#dc2626;color:#fff" title="2026-05-13: +2.84%">13</div><div class="heat" style="background:#bbf7d0;color:#14532d" title="2026-05-14: -0.13%">14</div><div class="heat" style="background:#16a34a;color:#fff" title="2026-05-15: -3.04%">15</div><div class="heat" style="background:#f87171;color:#fff" title="2026-05-18: +1.94%">18</div><div class="heat" style="background:#f87171;color:#fff" title="2026-05-19: +0.68%">19</div><div class="heat" style="background:#f87171;color:#fff" title="2026-05-20: +1.12%">20</div><div class="heat" style="background:#16a34a;color:#fff" title="2026-05-21: -4.30%">21</div><div class="heat" style="background:#dc2626;color:#fff" title="2026-05-22: +5.70%">22</div><div class="heat" style="background:#dc2626;color:#fff" title="2026-05-25: +3.76%">25</div><div class="heat" style="background:#4ade80;color:#fff" title="2026-05-26: -0.70%">26</div><div class="heat" style="background:#4ade80;color:#fff" title="2026-05-27: -0.62%">27</div><div class="heat" style="background:#dc2626;color:#fff" title="2026-05-28: +2.23%">28</div><div class="heat" style="background:#16a34a;color:#fff" title="2026-05-29: -2.41%">29</div><div class="heat" style="background:#16a34a;color:#fff" title="2026-06-01: -5.26%">01</div><div class="heat" style="background:#dc2626;color:#fff" title="2026-06-02: +6.24%">02</div></div>
+    <h3>🔵 中航机遇领航 (018956)</h3>
+    <div class="heat-grid"><div class="heat" style="background:#dc2626;color:#fff" title="2026-04-22: +5.01%">22</div><div class="heat" style="background:#16a34a;color:#fff" title="2026-04-23: -2.46%">23</div><div class="heat" style="background:#16a34a;color:#fff" title="2026-04-24: -3.16%">24</div><div class="heat" style="background:#bbf7d0;color:#14532d" title="2026-04-27: -0.10%">27</div><div class="heat" style="background:#16a34a;color:#fff" title="2026-04-28: -3.17%">28</div><div class="heat" style="background:#dc2626;color:#fff" title="2026-04-29: +2.51%">29</div><div class="heat" style="background:#bbf7d0;color:#14532d" title="2026-04-30: -0.44%">30</div><div class="heat" style="background:#bbf7d0;color:#14532d" title="2026-05-01: -0.44%">01</div><div class="heat" style="background:#bbf7d0;color:#14532d" title="2026-05-04: -0.44%">04</div><div class="heat" style="background:#bbf7d0;color:#14532d" title="2026-05-05: -0.44%">05</div><div class="heat" style="background:#dc2626;color:#fff" title="2026-05-06: +2.59%">06</div><div class="heat" style="background:#dc2626;color:#fff" title="2026-05-07: +4.18%">07</div><div class="heat" style="background:#dc2626;color:#fff" title="2026-05-08: +2.05%">08</div><div class="heat" style="background:#4ade80;color:#fff" title="2026-05-11: -1.87%">11</div><div class="heat" style="background:#dc2626;color:#fff" title="2026-05-12: +2.39%">12</div><div class="heat" style="background:#dc2626;color:#fff" title="2026-05-13: +3.97%">13</div><div class="heat" style="background:#f87171;color:#fff" title="2026-05-14: +1.80%">14</div><div class="heat" style="background:#4ade80;color:#fff" title="2026-05-15: -1.94%">15</div><div class="heat" style="background:#bbf7d0;color:#14532d" title="2026-05-18: -0.33%">18</div><div class="heat" style="background:#4ade80;color:#fff" title="2026-05-19: -1.03%">19</div><div class="heat" style="background:#f87171;color:#fff" title="2026-05-20: +0.75%">20</div><div class="heat" style="background:#16a34a;color:#fff" title="2026-05-21: -4.51%">21</div><div class="heat" style="background:#dc2626;color:#fff" title="2026-05-22: +4.35%">22</div><div class="heat" style="background:#dc2626;color:#fff" title="2026-05-25: +3.82%">25</div><div class="heat" style="background:#4ade80;color:#fff" title="2026-05-26: -0.94%">26</div><div class="heat" style="background:#bbf7d0;color:#14532d" title="2026-05-27: -0.03%">27</div><div class="heat" style="background:#dc2626;color:#fff" title="2026-05-28: +2.41%">28</div><div class="heat" style="background:#4ade80;color:#fff" title="2026-05-29: -1.87%">29</div><div class="heat" style="background:#16a34a;color:#fff" title="2026-06-01: -4.55%">01</div><div class="heat" style="background:#dc2626;color:#fff" title="2026-06-02: +4.98%">02</div></div>
+    <h3>🟡 国泰黄金ETF (022502)</h3>
+    <div class="heat-grid"><div class="heat" style="background:#bbf7d0;color:#14532d" title="2026-04-22: -0.13%">22</div><div class="heat" style="background:#4ade80;color:#fff" title="2026-04-23: -1.11%">23</div><div class="heat" style="background:#4ade80;color:#fff" title="2026-04-24: -0.53%">24</div><div class="heat" style="background:#fecaca;color:#7f1d1d" title="2026-04-27: +0.38%">27</div><div class="heat" style="background:#4ade80;color:#fff" title="2026-04-28: -1.50%">28</div><div class="heat" style="background:#4ade80;color:#fff" title="2026-04-29: -0.90%">29</div><div class="heat" style="background:#fecaca;color:#7f1d1d" title="2026-04-30: +0.37%">30</div><div class="heat" style="background:#fecaca;color:#7f1d1d" title="2026-05-01: +0.37%">01</div><div class="heat" style="background:#fecaca;color:#7f1d1d" title="2026-05-04: +0.37%">04</div><div class="heat" style="background:#fecaca;color:#7f1d1d" title="2026-05-05: +0.37%">05</div><div class="heat" style="background:#f87171;color:#fff" title="2026-05-06: +1.25%">06</div><div class="heat" style="background:#f87171;color:#fff" title="2026-05-07: +1.17%">07</div><div class="heat" style="background:#bbf7d0;color:#14532d" title="2026-05-08: -0.19%">08</div><div class="heat" style="background:#4ade80;color:#fff" title="2026-05-11: -0.97%">11</div><div class="heat" style="background:#fecaca;color:#7f1d1d" title="2026-05-12: +0.30%">12</div><div class="heat" style="background:#bbf7d0;color:#14532d" title="2026-05-13: -0.07%">13</div><div class="heat" style="background:#bbf7d0;color:#14532d" title="2026-05-14: -0.36%">14</div><div class="heat" style="background:#16a34a;color:#fff" title="2026-05-15: -2.46%">15</div><div class="heat" style="background:#4ade80;color:#fff" title="2026-05-18: -0.67%">18</div><div class="heat" style="background:#bbf7d0;color:#14532d" title="2026-05-19: -0.16%">19</div><div class="heat" style="background:#4ade80;color:#fff" title="2026-05-20: -1.61%">20</div><div class="heat" style="background:#f87171;color:#fff" title="2026-05-21: +0.85%">21</div><div class="heat" style="background:#bbf7d0;color:#14532d" title="2026-05-22: -0.02%">22</div><div class="heat" style="background:#f87171;color:#fff" title="2026-05-25: +0.56%">25</div><div class="heat" style="background:#4ade80;color:#fff" title="2026-05-26: -0.50%">26</div><div class="heat" style="background:#4ade80;color:#fff" title="2026-05-27: -1.09%">27</div><div class="heat" style="background:#16a34a;color:#fff" title="2026-05-28: -2.50%">28</div><div class="heat" style="background:#dc2626;color:#fff" title="2026-05-29: +2.31%">29</div><div class="heat" style="background:#bbf7d0;color:#14532d" title="2026-06-01: -0.44%">01</div><div class="heat" style="background:#f87171;color:#fff" title="2026-06-02: +0.70%">02</div></div>
+</section>
+
+<section>
+    <h2>📊 月度收益明细</h2>
+    <h3>东财通信C (008327)</h3>
+    <table>
+        <thead><tr><th>月份</th><th>月初净值</th><th>月末净值</th><th>交易日</th><th>月度收益</th></tr></thead>
+        <tbody><tr><td>2026-04</td><td>4.1449</td><td>4.0194</td><td>7天</td><td style="color:#ef4444;font-weight:bold">-3.03%</td></tr><tr><td>2026-05</td><td>4.0194</td><td>4.8493</td><td>21天</td><td style="color:#10b981;font-weight:bold">+20.65%</td></tr><tr><td>2026-06</td><td>4.6187</td><td>4.9204</td><td>2天</td><td style="color:#10b981;font-weight:bold">+6.53%</td></tr></tbody>
+    </table>
+    <h3>中航机遇领航 (018956)</h3>
+    <table>
+        <thead><tr><th>月份</th><th>月初净值</th><th>月末净值</th><th>交易日</th><th>月度收益</th></tr></thead>
+        <tbody><tr><td>2026-04</td><td>4.9916</td><td>4.5430</td><td>7天</td><td style="color:#ef4444;font-weight:bold">-8.99%</td></tr><tr><td>2026-05</td><td>4.5430</td><td>5.5677</td><td>21天</td><td style="color:#10b981;font-weight:bold">+22.56%</td></tr><tr><td>2026-06</td><td>5.3502</td><td>5.5859</td><td>2天</td><td style="color:#10b981;font-weight:bold">+4.41%</td></tr></tbody>
+    </table>
+    <h3>国泰黄金ETF (022502)</h3>
+    <table>
+        <thead><tr><th>月份</th><th>月初净值</th><th>月末净值</th><th>交易日</th><th>月度收益</th></tr></thead>
+        <tbody><tr><td>2026-04</td><td>3.7809</td><td>3.6519</td><td>7天</td><td style="color:#ef4444;font-weight:bold">-3.41%</td></tr><tr><td>2026-05</td><td>3.6519</td><td>3.5424</td><td>21天</td><td style="color:#ef4444;font-weight:bold">-3.00%</td></tr><tr><td>2026-06</td><td>3.5290</td><td>3.5556</td><td>2天</td><td style="color:#10b981;font-weight:bold">+0.75%</td></tr></tbody>
+    </table>
+</section>
+
+<section>
+    <h2>🌐 大盘指数对比</h2>
+    <table>
+        <thead><tr><th>指数</th><th>期初（2026-04-22）</th><th>期末（2026-06-02）</th><th>累计变化</th></tr></thead>
+        <tbody>
+            <tr><td>上证指数</td><td>4106.26</td><td>4075.10</td><td style="color:#f87171;font-weight:bold">-0.76%</td></tr>
+            <tr><td>深证成指</td><td>15177.29</td><td>15591.13</td><td style="color:#34d399;font-weight:bold">+2.73%</td></tr>
+            <tr><td colspan="4" style="color:#94a3b8;font-size:12px">📌 通信C 跑赢大盘：上证 +19.47 个百分点，深证 +15.98 个百分点</td></tr>
+        </tbody>
+    </table>
+</section>
+
+<section>
+    <h2>📰 每日市场要闻（来自 ETF 推送"总结"段）</h2>
+    <p style="color:#94a3b8;font-size:13px;margin-bottom:12px">按周分组 · 共 26 天</p>
+    <div class="week-group"><div class="week-title">📅 2026-04-20~2026-04-24</div><div class="news-item"><span class="news-date">2026-04-22</span>科技通信板块强势领涨，A股集体上扬，黄金小幅回调。</div><div class="news-item"><span class="news-date">2026-04-23</span>三大ETF今日集体收跌，通信与黄金板块同步回调，其中中航机遇领航跌幅最大(-2.46%)，拖累整体组合表现。</div><div class="news-item"><span class="news-date">2026-04-24</span>三大指数集体收跌，通信和军工板块回调明显（-2%至-3%），黄金小幅下跌0.53%作为防御。</div></div><div class="week-group"><div class="week-title">📅 2026-04-27~2026-05-01</div><div class="news-item"><span class="news-date">2026-04-27</span>今日通信科技板块领涨，黄金随国际金价小幅走强，沪指微涨0.16%收4086点，两市整体偏暖。</div><div class="news-item"><span class="news-date">2026-04-28</span>三大基金全线飘绿，中航机遇领航领跌（-3.17%），黄金相对抗跌，A股分化走势延续。</div><div class="news-item"><span class="news-date">2026-04-30</span>A股今日小幅收涨，通信板块表现活跃领涨，贵金属微幅上扬，军工主题小跌。</div><div class="news-item"><span class="news-date">2026-05-01</span>通信与黄金板块今日飘红，航空军工板块回调走弱，整体账户净值小幅正收益。</div></div><div class="week-group"><div class="week-title">📅 2026-05-04~2026-05-08</div><div class="news-item"><span class="news-date">2026-05-04</span>今日A股整体走弱，两大指数小幅收跌；通信板块逆势上涨，黄金和通信类ETF飘红，混合基金中航机遇领航小幅回调。</div><div class="news-item"><span class="news-date">2026-05-05</span>今日通信和黄金板块小幅走强，分别上涨+0.42%和+0.37%，混合基金中航机遇领航回调-0.44%；大盘沪强深弱，上证微涨而深成小幅收跌。</div><div class="news-item"><span class="news-date">2026-05-06</span>通信与成长板块强势领涨，A股整体上行，黄金同步小幅走强。</div><div class="news-item"><span class="news-date">2026-05-07</span>A股全面上涨，通信和机遇领航表现强劲涨幅均超4%，黄金小幅跟涨，整体做多情绪良好。</div><div class="news-item"><span class="news-date">2026-05-08</span>科技通信板块领涨，创业板延续强势，黄金小幅回调。</div></div><div class="week-group"><div class="week-title">📅 2026-05-11~2026-05-15</div><div class="news-item"><span class="news-date">2026-05-11</span>通信科技板块延续强势表现，科技类ETF领涨；黄金小幅回调，制造业主题走弱。</div><div class="news-item"><span class="news-date">2026-05-14</span>大盘今日下跌(上证-1.08%)，通信板块小幅回调(-0.13%)，中航机遇逆势上涨(+1.80%)，黄金小幅调整(-0.36%)。</div><div class="news-item"><span class="news-date">2026-05-15</span>今日A股三大指数全线下跌，市场整体走弱。黄金ETF受国际金价回调影响下跌2.46%，通信板块调整幅度最大(-3.04%)，混合基金下跌1.94%。</div></div><div class="week-group"><div class="week-title">📅 2026-05-18~2026-05-22</div><div class="news-item"><span class="news-date">2026-05-18</span>大盘全天小幅收跌，通信技术板块逆势走强领涨，东财通信C估算涨近2%；混合基金小跌0.33%，黄金小幅回调0.67%。</div><div class="news-item"><span class="news-date">2026-05-19</span>大盘指数集体回调，通信板块逆势走强，黄金小幅收跌。</div><div class="news-item"><span class="news-date">2026-05-20</span>通信板块领涨、黄金小幅回调，整体市场震荡偏弱。</div><div class="news-item"><span class="news-date">2026-05-21</span>A股三大指数集体下挫(-1.6%~-1.7%)，科技通信和机遇领航主题基金受拖累分别下跌4.3%和4.5%，黄金避险资产逆势上涨0.85%。</div></div><div class="week-group"><div class="week-title">📅 2026-05-25~2026-05-29</div><div class="news-item"><span class="news-date">2026-05-25</span>科技与通信板块今日表现强势，东财通信C和中航机遇领航均涨超3.7%，黄金小幅跟涨，整体做多氛围浓厚。</div><div class="news-item"><span class="news-date">2026-05-26</span>A股三大ETF今日集体收跌，中航机遇领航跌幅最大达0.94%，东财通信C跌0.70%，黄金ETF同步回调跌0.50%；大盘沪弱深强，沪指小幅下跌但深成指微涨。</div><div class="news-item"><span class="news-date">2026-05-27</span>A股午后加速下挫，三大指数全线收绿。您的三只ETF均随市回调，其中黄金ETF跌幅最大（-1.09%），通信C小跌（-0.62%），中航机遇基本持平（-0.03%），整体跑赢大盘。</div><div class="news-item"><span class="news-date">2026-05-28</span>通信/科技板块延续强势表现，估算涨幅均超2%；黄金价格回落，带动黄金ETF下跌2.50%。</div><div class="news-item"><span class="news-date">2026-05-29</span>科技通信和混合基金随大盘回调，创业板指跌超2%，但黄金强势上涨超2%，避险资金明显。</div></div><div class="week-group"><div class="week-title">📅 2026-06-01~2026-06-05</div><div class="news-item"><span class="news-date">2026-06-01</span>A股三大指数普跌(上证-0.27%、深成-1.51%)，通信/科技板块大幅回调(东财通信-5.26%、中航机遇领航-4.55%)，黄金相对抗跌(国泰黄金-0.44%)，市场风险偏好明显下降。</div><div class="news-item"><span class="news-date">2026-06-02</span>今日A股三大指数集体收涨，科技/通信板块爆发，通信ETF大涨超6%，混合基金跟涨近5%，黄金避险资产平稳小幅跟涨。</div></div>
+</section>
+
+<section>
+    <h2>⚠️ 关键事件 & 异常记录</h2>
+    <div class="alert">
+        <div class="alert-title">🚨 系统故障</div>
+        41 天内共 <b>130 次 [SILENT] 空跑</b>（18.5%），意味着 cron 触发但 agent 未生成有效推送。叠加 6 份乱码/无效输出，可靠性 81.5%。
+    </div>
+    <div class="alert">
+        <div class="alert-title">🎢 通信C 6月剧烈波动</div>
+        6/1 单日 <b>-5.26%</b>（最大单日跌幅），6/2 反弹 <b>+6.24%</b>（最大单日涨幅），两天累计约 +0.6%，但波动率显著放大。
+    </div>
+    <div class="alert">
+        <div class="alert-title">📉 黄金连续 2 个月走弱</div>
+        国泰黄金ETF 4 月 -3.41%、5 月 -3.00%，连续 60 天阴跌。同期通信C +18%、中航机遇 +12%，防御资产失效。
+    </div>
+    <div class="alert">
+        <div class="alert-title">🏆 5 月 = 进攻月</div>
+        通信C 5 月单月 +20.65%，中航机遇 +22.56%，同期上证 -0.76%、深证 +2.73%——两只基金都显著跑赢大盘。
+    </div>
+</section>
+
+<section>
+    <h2>💡 核心结论</h2>
+    <ol style="line-height:2;padding-left:24px">
+        <li><b>组合整体跑赢大盘</b>：41 天内通信C +18.7%、中航机遇 +11.9%，分别跑赢上证 19.5 和 12.7 个百分点。</li>
+        <li><b>5 月是核心收益来源</b>：通信C 和中航机遇 5 月单月贡献了几乎全部正收益，4 月和 6 月初是震荡期。</li>
+        <li><b>黄金配置失效</b>：作为避险资产，黄金连续 2 个月下跌，建议评估是否要调整仓位。</li>
+        <li><b>波动率 6 月显著放大</b>：单日 ±5% 的波动成为常态，仓位管理需更谨慎。</li>
+        <li><b>推送质量待优化</b>：130 次空跑占 18.5%，建议排查 cron prompt 设置。</li>
+    </ol>
+</section>
+
+<footer>
+    📊 报告生成时间：2026-06-03 · 数据源：~/.hermes/cron/output/2c142e580b82/ · 704 份原始推送
+</footer>
+</div>
+</body>
+</html>
