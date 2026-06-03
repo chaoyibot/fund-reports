@@ -2,18 +2,50 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>基金分析报告 · chaoyibot</title>
-    <meta http-equiv="refresh" content="0; url=./etf-41days-20260422-0602.html">
     <style>
-        body { font-family: -apple-system, "PingFang SC", sans-serif; background: #0f172a; color: #e2e8f0; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
-        .box { text-align: center; }
-        a { color: #60a5fa; text-decoration: none; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+               background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+               color: #e2e8f0; min-height: 100vh; padding: 40px 20px; line-height: 1.7; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { font-size: 32px; margin-bottom: 12px; }
+        .sub { color: #94a3b8; margin-bottom: 32px; }
+        .card { background: #1e293b; border-radius: 12px; padding: 24px; margin: 16px 0;
+                border-left: 4px solid #3b82f6; transition: transform 0.2s; }
+        .card:hover { transform: translateX(4px); }
+        .card h2 { font-size: 18px; margin-bottom: 8px; }
+        .card p { color: #94a3b8; font-size: 14px; margin-bottom: 12px; }
+        .card a { color: #60a5fa; text-decoration: none; font-weight: bold; }
+        .card a:hover { text-decoration: underline; }
+        .badge { display: inline-block; padding: 2px 8px; background: #dc2626;
+                 color: white; border-radius: 4px; font-size: 11px; margin-left: 8px; }
+        footer { text-align: center; color: #64748b; font-size: 12px; margin-top: 40px; }
     </style>
 </head>
 <body>
-    <div class="box">
-        <h1>📊 跳转中...</h1>
-        <p>如未自动跳转：<a href="./etf-41days-20260422-0602.html">点击这里</a></p>
+    <div class="container">
+        <h1>📊 基金分析报告</h1>
+        <p class="sub">Hermes Agent 自动生成 · 数据源：cron 任务 2c142e580b82</p>
+
+        <div class="card">
+            <h2>三只基金 41 天走势分析报告 <span class="badge">NEW</span></h2>
+            <p>📅 2026-04-22 ~ 2026-06-02 · 30 个交易日 · 510 条净值数据</p>
+            <p>包含：三只基金累计收益走势图 / 通信C vs 大盘对比 / 每日涨跌热力图 / 月度收益表 / 每日市场要闻 / 关键事件</p>
+            <a href="./etf-41days-20260422-0602.html">👉 查看完整报告 →</a>
+        </div>
+
+        <div class="card">
+            <h2>008327 入场分析报告</h2>
+            <p>📅 早期报告</p>
+            <a href="./008327-report.html">👉 查看报告 →</a>
+        </div>
+
+        <footer>
+            📁 仓库：github.com/chaoyibot/fund-reports<br>
+            ⚡ GitHub Pages 自动部署
+        </footer>
     </div>
 </body>
 </html>
