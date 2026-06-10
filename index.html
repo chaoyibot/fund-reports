@@ -1,57 +1,43 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>研究报告库 · chaoyibot</title>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
-               background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-               color: #e2e8f0; min-height: 100vh; padding: 40px 20px; line-height: 1.7; }
-        .container { max-width: 800px; margin: 0 auto; }
-        h1 { font-size: 32px; margin-bottom: 12px; }
-        .sub { color: #94a3b8; margin-bottom: 32px; }
-        .card { background: #1e293b; border-radius: 12px; padding: 24px; margin: 16px 0;
-                border-left: 4px solid #3b82f6; transition: transform 0.2s; }
-        .card:hover { transform: translateX(4px); }
-        .card h2 { font-size: 18px; margin-bottom: 8px; }
-        .card p { color: #94a3b8; font-size: 14px; margin-bottom: 12px; }
-        .card a { color: #60a5fa; text-decoration: none; font-weight: bold; }
-        .card a:hover { text-decoration: underline; }
-        .badge { display: inline-block; padding: 2px 8px; background: #dc2626;
-                 color: white; border-radius: 4px; font-size: 11px; margin-left: 8px; }
-        footer { text-align: center; color: #64748b; font-size: 12px; margin-top: 40px; }
-    </style>
+<meta charset="UTF-8">
+<title>东哥基金看板</title>
+<style>
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #0f1419;
+    color: #e6e6e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+  .container { text-align: center; max-width: 600px; padding: 40px; }
+  h1 { font-size: 32px; margin-bottom: 16px; }
+  p { color: #8b95a1; margin-bottom: 24px; line-height: 1.6; }
+  a {
+    display: inline-block;
+    background: #3b82f6;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 8px;
+  }
+  a:hover { background: #2563eb; }
+  .meta { color: #5a6675; font-size: 13px; margin-top: 32px; }
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>📚 研究报告库</h1>
-        <p class="sub">Hermes Agent 自动生成 · 基于网络公开信息整理</p>
-
-        <div class="card">
-            <h2>🌐 光模块与 CPO 共封装光学深度研究报告 <span class="badge">NEW</span></h2>
-            <p>📅 2026-06-03 · 约 7800 字 · 7 个信息源 · 23 个关键数据点</p>
-            <p>覆盖：业务历史（2000-2025） / 技术原理（可插拔→CPO） / 产业链格局 / 本轮爆涨四大驱动 / 龙头护城河 / CPO vs LPO 技术分歧 / 未来 3-5 年路径 / 4 类风险点 / 信息溯源声明</p>
-            <a href="./cpo-research-2026.html">👉 查看完整报告 →</a>
-        </div>
-
-        <div class="card">
-            <h2>📈 三只基金 41 天走势分析报告</h2>
-            <p>📅 2026-04-22 ~ 2026-06-02 · 30 个交易日 · 510 条净值数据</p>
-            <a href="./report.html">👉 查看完整报告 →</a>
-        </div>
-
-        <div class="card">
-            <h2>008327 入场分析报告</h2>
-            <p>📅 早期报告</p>
-            <a href="./008327-report.html">👉 查看报告 →</a>
-        </div>
-
-        <footer>
-            📁 仓库：github.com/chaoyibot/fund-reports<br>
-            ⚡ GitHub Pages 自动部署
-        </footer>
-    </div>
+<div class="container">
+  <h1>📊 东哥基金看板</h1>
+  <p>由 ETF 通信舆情监控智能体自动生成<br>每 10 分钟更新（工作日盘中）</p>
+  <a href="./sector.html">📡 通信板块情绪仪表盘</a>
+  <p class="meta">数据源：akshare.stock_comment_em · akshare.fund_open_fund_info_em<br>
+  LLM 打分：claude-haiku-4-5 · 飞书 IM 实时推送</p>
+</div>
 </body>
 </html>
