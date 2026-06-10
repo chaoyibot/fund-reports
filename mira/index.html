@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mira 投研协议 · 008327 通信 ETF</title>
+<style>
+  :root { --bg:#0f1419; --card:#1a2028; --text:#e6e6e6; --muted:#8b95a1;
+          --blue:#3b82f6; --green:#22c55e; --yellow:#eab308; --red:#ef4444; --border:#2a3340; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+         background: var(--bg); color: var(--text); line-height: 1.6;
+         padding: 24px; max-width: 1200px; margin: 0 auto; }
+  h1 { font-size: 36px; font-weight: 700; margin-bottom: 8px;
+       display: flex; align-items: center; gap: 12px; }
+  h1 .badge { font-size: 14px; background: var(--blue); color: white;
+              padding: 4px 12px; border-radius: 12px; font-weight: 500; }
+  .subtitle { color: var(--muted); font-size: 15px; margin-bottom: 32px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+          gap: 16px; margin-bottom: 32px; }
+  .card { background: var(--card); border: 1px solid var(--border);
+          border-radius: 12px; padding: 20px; transition: transform 0.2s, border-color 0.2s; }
+  .card:hover { transform: translateY(-2px); border-color: var(--blue); }
+  .card .icon { font-size: 28px; margin-bottom: 8px; }
+  .card h2 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+  .card p { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
+  .card ul { list-style: none; margin-bottom: 12px; }
+  .card li { padding: 4px 0; font-size: 13px; }
+  .card li::before { content: "→ "; color: var(--blue); }
+  .card a { color: var(--blue); text-decoration: none; font-size: 14px;
+            display: inline-block; padding: 4px 0; }
+  .card a:hover { text-decoration: underline; }
+  .meta { color: #5a6675; font-size: 12px; margin-top: 12px;
+          padding-top: 12px; border-top: 1px solid var(--border); }
+  .decision { background: linear-gradient(135deg, #1a2028 0%, #1a2530 100%);
+              border: 1px solid var(--blue); }
+  .decision h2 { color: var(--blue); }
+  .kpi-row { display: flex; gap: 24px; margin: 16px 0; flex-wrap: wrap; }
+  .kpi { flex: 1; min-width: 100px; }
+  .kpi .label { color: var(--muted); font-size: 11px; margin-bottom: 4px;
+                text-transform: uppercase; letter-spacing: 0.5px; }
+  .kpi .value { font-size: 20px; font-weight: 600; }
+  .value.green { color: var(--green); }
+  .value.yellow { color: var(--yellow); }
+  .value.red { color: var(--red); }
+  .footer { color: #5a6675; font-size: 12px; text-align: center;
+            margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); }
+  .footer a { color: var(--blue); text-decoration: none; }
+  .tag { display: inline-block; background: var(--border); color: var(--muted);
+         font-size: 11px; padding: 2px 8px; border-radius: 8px; margin-right: 4px; }
+  .tag.active { background: var(--green); color: #0f1419; font-weight: 600; }
+  .tag.watch { background: var(--yellow); color: #0f1419; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<h1>
+  🪞 Mira 投研协议
+  <span class="badge">byteseek/Mira MIT</span>
+</h1>
+<p class="subtitle">把每个研究主题当成状态化对象 · 强制 fact/inference/judgment 分离 · 强制 thesis_state + stale_after + must_refresh_if</p>
+
+<!-- 008327 决策卡片 -->
+<div class="card decision" style="margin-bottom: 24px;">
+  <div class="icon">🎯</div>
+  <h2>008327 通信 ETF — Industry Analysis</h2>
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="label">THESIS STATE</div>
+      <div class="value green">active</div>
+    </div>
+    <div class="kpi">
+      <div class="label">RESEARCH ACTION</div>
+      <div class="value" style="color: var(--blue);">monitor + add-research</div>
+    </div>
+    <div class="kpi">
+      <div class="label">CONVICTION</div>
+      <div class="value yellow">medium-high</div>
+    </div>
+    <div class="kpi">
+      <div class="label">HORIZON</div>
+      <div class="value">12-18 m</div>
+    </div>
+    <div class="kpi">
+      <div class="label">STALE AFTER</div>
+      <div class="value">2025-08-15</div>
+    </div>
+  </div>
+  <p style="color: var(--muted); font-size: 14px; margin-top: 12px;">
+    <span class="tag active">光模块 25-30%</span>
+    <span class="tag active">通信设备 15-18%</span>
+    <span class="tag active">PCB 10-15%</span>
+    <span class="tag">封测 8-10%</span>
+    <span class="tag">连接器 4-5%</span>
+  </p>
+  <p style="color: var(--muted); font-size: 13px; margin-top: 12px;">
+    008327 实际是 <strong style="color: var(--blue);">"中国 AI 算力硬件链条"</strong> 指数化敞口，
+    核心受益 NVIDIA 800G/1.6T 光模块放量 + 国内 CSP 资本开支加速。
+  </p>
+</div>
+
+<div class="grid">
+  <!-- 产业研究产物 -->
+  <div class="card">
+    <div class="icon">🏭</div>
+    <h2>008327 通信 ETF 产业研究</h2>
+    <p>industry-concept-analysis 8 件套（byteseek/Mira 协议）</p>
+    <ul>
+      <li><a href="./industry/008327/industry-map.md">📋 industry-map.md</a> — 8 件套完整产物（17KB）</li>
+      <li><a href="./industry/008327/case-notes.md">📓 case-notes.md</a> — 5 key insight + 3 弯路 + 6 盲点</li>
+      <li><a href="./industry/008327/company-map.csv">📊 company-map.csv</a> — 15 只核心持仓</li>
+      <li><a href="./industry/008327/evidence-log.csv">🔍 evidence-log.csv</a> — 20 条 claim × 20 列</li>
+      <li><a href="./industry/008327/sector-summary.json">📈 sector-summary.json</a> — 子赛道聚合数据</li>
+      <li><a href="./industry/008327/README.md">📖 README.md</a> — 总览 + 触发词 + 决策卡片</li>
+    </ul>
+    <div class="meta">6 files · 56 KB · AAPL schema 100% 兼容</div>
+  </div>
+
+  <!-- Mira skill -->
+  <div class="card">
+    <div class="icon">📚</div>
+    <h2>Mira 投研协议 Skill</h2>
+    <p>~/.hermes/skills/mira-research-protocol/ 完整导出</p>
+    <ul>
+      <li><a href="./skill/SKILL.md">📜 SKILL.md</a> — 14KB 入口（唤醒词 + 18 字段）</li>
+      <li><a href="./skill/references/routing-index.md">🗺️ routing-index.md</a> — 任务路由表</li>
+      <li><a href="./skill/references/investment-memo-template.md">📝 investment-memo-template.md</a> — AAPL 范本</li>
+      <li><a href="./skill/references/monitoring-loop-statemachine.md">🔁 monitoring-loop-statemachine.md</a> — 8 状态机详解</li>
+    </ul>
+    <div class="meta">4 files · 52 KB · 7 thesis_state + 9 expectation_map + 5 must_refresh_if</div>
+  </div>
+
+  <!-- 监控仪表盘 -->
+  <div class="card">
+    <div class="icon">📊</div>
+    <h2>ETF 监控实时仪表盘</h2>
+    <p>由 monitoring-loop 8 状态机驱动（每 10 分钟更新）</p>
+    <ul>
+      <li><a href="/sector.html">📡 sector.html</a> — 通信板块情绪仪表盘（Chart.js 暗色）</li>
+    </ul>
+    <div class="meta">5 数据源：akshare · 雪球 · 财联社 · 新浪 · 东财</div>
+  </div>
+
+  <!-- ETF 智能体源码 -->
+  <div class="card">
+    <div class="icon">⚙️</div>
+    <h2>智能体源码 + 状态机</h2>
+    <p>本地 ~/etf-sentiment/ · cron 1bb65b4bc323</p>
+    <ul>
+      <li>agent.py — 953 行（5 数据源 + LLM 打分 + Mira 集成）</li>
+      <li>thesis_ledger.py — 460 行（8 状态机）</li>
+      <li>sources/ — akshare · xueqiu_cdp · sina_finance · push_to_pages</li>
+    </ul>
+    <div class="meta">5 must_refresh_if 触发 → 升级回 research-loop</div>
+  </div>
+</div>
+
+<!-- 关键洞察 -->
+<div class="card" style="margin-bottom: 24px;">
+  <h2 style="margin-bottom: 16px;">🔍 5 个关键洞察</h2>
+  <ol style="padding-left: 20px; color: var(--text);">
+    <li style="margin-bottom: 8px;"><strong style="color: var(--blue);">008327 是"AI 算力 ETF"而非"5G ETF"</strong> — 实际 75-80% 暴露在 AI 算力硬件链（光模块 + PCB + 封测）</li>
+    <li style="margin-bottom: 8px;"><strong style="color: var(--blue);">季报只披露 50% 重仓股</strong> — 其他 50% 按子赛道分布推算（<code style="color: var(--yellow);">partially_knowable</code>）</li>
+    <li style="margin-bottom: 8px;"><strong style="color: var(--blue);">中际旭创/新易盛是 1.6T 双寡头</strong> — 但 2027+ 持续性 <code style="color: var(--red);">irreducible_uncertainty</code>（不强行编故事）</li>
+    <li style="margin-bottom: 8px;"><strong style="color: var(--blue);">利润池从"通信设备"迁移到"光模块 + AI PCB"</strong> — 2024→2026 量化趋势</li>
+    <li style="margin-bottom: 8px;"><strong style="color: var(--blue);">akshare stock_comment_em 23 只成分股加权得分</strong> — 比雪球/财联社稳定 100x</li>
+  </ol>
+</div>
+
+<!-- 5 个 must_refresh_if -->
+<div class="card">
+  <h2 style="margin-bottom: 16px;">🚨 5 条 must_refresh_if 触发条件</h2>
+  <p style="color: var(--muted); margin-bottom: 12px;">任一触发 → monitoring-loop 9 条升级规则 → 升级回 research-loop</p>
+  <ol style="padding-left: 20px;">
+    <li style="margin-bottom: 6px;">008327 单日净值异动 <code style="color: var(--red);">> ±3%</code></li>
+    <li style="margin-bottom: 6px;">中际旭创 / 新易盛 / 天孚通信 发布季报或业绩预告</li>
+    <li style="margin-bottom: 6px;">5G-A 政策 / 工信部招标出现重大变化</li>
+    <li style="margin-bottom: 6px;">CPO / 硅光 / 1.6T 路线出现关键节点（量产/延期/认证）</li>
+    <li style="margin-bottom: 6px;">akshare 通信板块 23 只成分股情绪综合得分 连续 3 日转负</li>
+  </ol>
+</div>
+
+<div class="footer">
+  <p>🪞 Generated by <strong>Mira 投研协议</strong> + 008327 通信 ETF 监控智能体</p>
+  <p style="margin-top: 8px;">Source: <a href="https://github.com/byteseek/Mira">github.com/byteseek/Mira</a> (193⭐ MIT) ·
+  <a href="https://chaoyibot.github.io/fund-reports/">Home</a> ·
+  <a href="https://github.com/chaoyibot/fund-reports">GitHub Repo</a></p>
+  <p style="margin-top: 8px;">Last updated: 2026-06-07 · 11 files · 174 KB</p>
+</div>
+
+</body>
+</html>
