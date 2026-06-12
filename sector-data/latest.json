@@ -1,5 +1,5 @@
 {
-  "抓取时间": "2026-06-12 15:10:27",
+  "抓取时间": "2026-06-12 15:20:31",
   "统计区间": "近10分钟",
   "监控标的": [
     "ETF通信",
@@ -33,13 +33,13 @@
       "type": "API"
     }
   ],
-  "有效信息条数": 7,
+  "有效信息条数": 5,
   "情感分布": {
-    "正面占比%": 28.6,
-    "负面占比%": 57.1,
-    "中性占比%": 14.3
+    "正面占比%": 40.0,
+    "负面占比%": 40.0,
+    "中性占比%": 20.0
   },
-  "净情绪分": -1.4,
+  "净情绪分": 0.0,
   "情绪趋势": "震荡",
   "热度指数": "中",
   "反转信号": {
@@ -49,8 +49,8 @@
     "操作建议": "观望"
   },
   "板块情绪": {
-    "fetched_at": "2026-06-12 15:10:33",
-    "fetch_seconds": 3.0,
+    "fetched_at": "2026-06-12 15:20:38",
+    "fetch_seconds": 4.7,
     "sector": "通信设备/光模块",
     "matched": 23,
     "total_market": 5184,
@@ -68,8 +68,8 @@
         "change_pct": -4.44,
         "composite_score": 76.9,
         "focus_index": 93.6,
-        "main_cost": 413.435,
-        "institutional": 0.552
+        "main_cost": 292.179,
+        "institutional": 0.501
       },
       {
         "code": "000063",
@@ -78,8 +78,8 @@
         "change_pct": -3.86,
         "composite_score": 64.2,
         "focus_index": 94.8,
-        "main_cost": 38.274,
-        "institutional": 0.455
+        "main_cost": 37.108,
+        "institutional": 0.409
       },
       {
         "code": "300502",
@@ -88,8 +88,8 @@
         "change_pct": -3.71,
         "composite_score": 76.1,
         "focus_index": 94.8,
-        "main_cost": 533.436,
-        "institutional": 0.634
+        "main_cost": 515.463,
+        "institutional": 0.63
       },
       {
         "code": "688041",
@@ -98,8 +98,8 @@
         "change_pct": -3.39,
         "composite_score": 80.8,
         "focus_index": 93.6,
-        "main_cost": 286.353,
-        "institutional": 0.581
+        "main_cost": 290.515,
+        "institutional": 0.622
       },
       {
         "code": "601728",
@@ -108,8 +108,8 @@
         "change_pct": -3.04,
         "composite_score": 72.3,
         "focus_index": 92.4,
-        "main_cost": 6.221,
-        "institutional": 0.47
+        "main_cost": 6.157,
+        "institutional": 0.425
       },
       {
         "code": "002446",
@@ -118,8 +118,8 @@
         "change_pct": -2.6,
         "composite_score": 64.2,
         "focus_index": 89.6,
-        "main_cost": 10.848,
-        "institutional": 0.326
+        "main_cost": 10.72,
+        "institutional": 0.275
       },
       {
         "code": "300620",
@@ -128,8 +128,8 @@
         "change_pct": -2.58,
         "composite_score": 71.8,
         "focus_index": 84.8,
-        "main_cost": 296.366,
-        "institutional": 0.466
+        "main_cost": 292.359,
+        "institutional": 0.407
       },
       {
         "code": "300136",
@@ -138,8 +138,8 @@
         "change_pct": -2.44,
         "composite_score": 66.2,
         "focus_index": 92.0,
-        "main_cost": 96.833,
-        "institutional": 0.469
+        "main_cost": 100.967,
+        "institutional": 0.482
       },
       {
         "code": "688008",
@@ -148,8 +148,8 @@
         "change_pct": -1.67,
         "composite_score": 70.0,
         "focus_index": 93.6,
-        "main_cost": 229.343,
-        "institutional": 0.556
+        "main_cost": 233.614,
+        "institutional": 0.554
       },
       {
         "code": "600522",
@@ -158,8 +158,8 @@
         "change_pct": -1.36,
         "composite_score": 70.3,
         "focus_index": 94.4,
-        "main_cost": 49.544,
-        "institutional": 0.478
+        "main_cost": 50.08,
+        "institutional": 0.498
       },
       {
         "code": "002463",
@@ -168,8 +168,8 @@
         "change_pct": -1.35,
         "composite_score": 74.3,
         "focus_index": 92.8,
-        "main_cost": 127.158,
-        "institutional": 0.442
+        "main_cost": 129.786,
+        "institutional": 0.467
       },
       {
         "code": "002179",
@@ -178,8 +178,8 @@
         "change_pct": -1.34,
         "composite_score": 72.3,
         "focus_index": 88.4,
-        "main_cost": 36.48,
-        "institutional": 0.358
+        "main_cost": 37.026,
+        "institutional": 0.364
       },
       {
         "code": "600941",
@@ -188,8 +188,8 @@
         "change_pct": -0.89,
         "composite_score": 73.2,
         "focus_index": 89.6,
-        "main_cost": 96.154,
-        "institutional": 0.316
+        "main_cost": 95.345,
+        "institutional": 0.326
       },
       {
         "code": "300548",
@@ -198,8 +198,8 @@
         "change_pct": -0.43,
         "composite_score": 69.7,
         "focus_index": 84.4,
-        "main_cost": 227.361,
-        "institutional": 0.378
+        "main_cost": 227.792,
+        "institutional": 0.382
       },
       {
         "code": "002281",
@@ -208,8 +208,8 @@
         "change_pct": -0.21,
         "composite_score": 72.1,
         "focus_index": 90.8,
-        "main_cost": 206.286,
-        "institutional": 0.499
+        "main_cost": 206.417,
+        "institutional": 0.506
       },
       {
         "code": "300223",
@@ -218,8 +218,8 @@
         "change_pct": 0.08,
         "composite_score": 67.9,
         "focus_index": 90.4,
-        "main_cost": 145.841,
-        "institutional": 0.415
+        "main_cost": 150.234,
+        "institutional": 0.427
       },
       {
         "code": "600050",
@@ -228,8 +228,8 @@
         "change_pct": 0.23,
         "composite_score": 65.6,
         "focus_index": 86.4,
-        "main_cost": 4.344,
-        "institutional": 0.476
+        "main_cost": 4.383,
+        "institutional": 0.473
       },
       {
         "code": "002465",
@@ -238,8 +238,8 @@
         "change_pct": 0.59,
         "composite_score": 48.0,
         "focus_index": 85.6,
-        "main_cost": 13.614,
-        "institutional": 0.308
+        "main_cost": 13.815,
+        "institutional": 0.292
       },
       {
         "code": "002194",
@@ -248,8 +248,8 @@
         "change_pct": 0.62,
         "composite_score": 58.2,
         "focus_index": 92.0,
-        "main_cost": 11.564,
-        "institutional": 0.252
+        "main_cost": 11.379,
+        "institutional": 0.283
       },
       {
         "code": "300308",
@@ -258,8 +258,8 @@
         "change_pct": 2.22,
         "composite_score": 77.6,
         "focus_index": 94.8,
-        "main_cost": 1129.652,
-        "institutional": 0.699
+        "main_cost": 1153.321,
+        "institutional": 0.708
       },
       {
         "code": "300570",
@@ -268,8 +268,8 @@
         "change_pct": 4.22,
         "composite_score": 76.0,
         "focus_index": 88.0,
-        "main_cost": 176.348,
-        "institutional": 0.487
+        "main_cost": 184.278,
+        "institutional": 0.522
       },
       {
         "code": "300661",
@@ -278,8 +278,8 @@
         "change_pct": 5.91,
         "composite_score": 67.1,
         "focus_index": 82.8,
-        "main_cost": 105.547,
-        "institutional": 0.326
+        "main_cost": 108.245,
+        "institutional": 0.404
       },
       {
         "code": "603083",
@@ -288,20 +288,20 @@
         "change_pct": 6.96,
         "composite_score": 62.0,
         "focus_index": 84.8,
-        "main_cost": 171.28,
-        "institutional": 0.389
+        "main_cost": 183.857,
+        "institutional": 0.501
       }
     ]
   },
   "mira": {
     "thesis_state": "upgrade_watch",
     "research_action": "add-research",
-    "stale_after": "2026-06-19 15:10:52",
+    "stale_after": "2026-06-19 15:21:03",
     "must_refresh_if_triggered": [],
     "thesis_decision_trigger": "no_change",
     "expectation_map_snapshot": {
-      "positioning": -1.4,
-      "catalyst_timing": "near",
+      "positioning": 0.0,
+      "catalyst_timing": "mid",
       "板块情绪加权得分": 69.4
     }
   },
@@ -315,25 +315,25 @@
     {
       "来源": "雪球热榜-cat6",
       "发布时间": "2026-06-12 15:07",
-      "内容摘要": "[4962看 0评] 上海航运交易所数据显示，截至6月12日，上海出口集装箱运价指数（综合指数）报2985.22点，与上期相比上涨258.74点。中国出口集装箱",
+      "内容摘要": "[16334看 0评] 上海航运交易所数据显示，截至6月12日，上海出口集装箱运价指数（综合指数）报2985.22点，与上期相比上涨258.74点。中国出口集装",
       "情绪分": 5.0
     },
     {
       "来源": "雪球热榜-cat6",
       "发布时间": "2026-06-12 15:04",
-      "内容摘要": "[9475看 0评] 【十余只宽基指数成分股调整 多股集合竞价大幅异动】多股尾盘集合竞价大幅异动，鼎通科技、山东高速、有研硅、卓胜微、圣邦股份、时代电气等快速拉",
+      "内容摘要": "[19543看 0评] 【十余只宽基指数成分股调整 多股集合竞价大幅异动】多股尾盘集合竞价大幅异动，鼎通科技、山东高速、有研硅、卓胜微、圣邦股份、时代电气等快速",
       "情绪分": -5.0
     },
     {
       "来源": "雪球热榜-cat6",
       "发布时间": "2026-06-12 14:46",
-      "内容摘要": "[26431看 0评] 【沪深两市成交额超3万亿 较上一日此时放量近6000亿】据财联社盯盘数据显示，沪深两市成交额突破3万亿，较上一日此时放量近6000亿，预",
+      "内容摘要": "[28847看 0评] 【沪深两市成交额超3万亿 较上一日此时放量近6000亿】据财联社盯盘数据显示，沪深两市成交额突破3万亿，较上一日此时放量近6000亿，预",
       "情绪分": 5.0
     },
     {
-      "来源": "雪球热榜-cat6",
-      "发布时间": "2026-06-12 14:29",
-      "内容摘要": "[35021看 0评] 【港股市场两倍做多海力士转跌 抹去早盘15%的涨幅】港股市场两倍做多海力士转跌，此前一度涨15%；两倍做多三星电子涨幅收窄至约14%，此",
+      "来源": "akshare-通信板块",
+      "发布时间": "2026-06-12 15:20",
+      "内容摘要": "通信板块异动：23只成分股平均-0.54%, 关注指数90.2, 综合得分69.4. 领跌：天孚通信-4.44% | 中兴通讯-3.86% | 新易盛-3.71",
       "情绪分": -5.0
     }
   ]
